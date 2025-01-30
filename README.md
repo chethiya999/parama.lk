@@ -1,0 +1,1 @@
+# parama.lk
