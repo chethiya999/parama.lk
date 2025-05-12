@@ -337,7 +337,7 @@
 		border: none;
 	}
 	.header-style-two .header-mainbox {
-		background: #0F263A;
+		background: #fafafa;
 	}
 
 
@@ -380,7 +380,7 @@
 	.main-menu .collapse.in,
 	.main-menu .collapsing{
 		padding:0px;
-		border:1px solid #333;
+		border:1px solid #ffffff;
 		margin:0px 0px 15px;
 		-ms-border-radius:3px;
 		-moz-border-radius:3px;
