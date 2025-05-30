@@ -1,626 +1,180 @@
+// Main JavaScript for Parama Solutions website
 
- /**
-*
-* ---------------------------------------------------------------------------
-*
-* Template Name : Kudi | Business html5 responsive template
-* Template URL :    
-* Author : wpthemeshaper
-* Version : 1.0
-*
-* --------------------------------------------------------------------------- 
-*
-*/
-
-
-(function($) {
-
-	"use strict";
-
-    /*------------------------------------------
-        = Hide Loading Box (Preloader)
-    -------------------------------------------*/
-    
-	function handlePreloader() {
-		if($('.preloader').length){
-			$('.preloader').delay(200).fadeOut(500);
-		}
-	}
-
-    /*------------------------------------------
-        = Update Scroll to Top
-    -------------------------------------------*/
-
-	function headerStyle() {
-        if($('.main-header').length){
-            var windowpos = $(window).scrollTop();
-            var siteHeader = $('.main-header');
-            var scrollLink = $('.scroll-to-top');
-            if (windowpos > 150) {
-                siteHeader.addClass('fixed-header');
-                scrollLink.fadeIn(300);
-            } else {
-                siteHeader.removeClass('fixed-header');
-                scrollLink.fadeOut(300);
-            }
+// DOM Elements
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu functionality
+    function createMobileMenu() {
+        if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-btn')) {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelector('.nav-links');
+            
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.className = 'mobile-menu-btn';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            
+            // Insert before the nav-links
+            navbar.insertBefore(mobileMenuBtn, navLinks);
+            
+            // Event listener for mobile menu
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                
+                // Change icon based on menu state
+                if (navLinks.classList.contains('open')) {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        } else if (window.innerWidth > 768 && document.querySelector('.mobile-menu-btn')) {
+            document.querySelector('.mobile-menu-btn').remove();
+            document.querySelector('.nav-links').classList.remove('open');
         }
     }
     
-    headerStyle();
-
-    /*------------------------------------------
-        = Submenu Dropdown Toggle
-    -------------------------------------------*/
-
-    if($('.main-header li.dropdown ul').length){
-        $('.main-header li.dropdown').append('<div class="dropdown-btn"><span class="icofont icofont-curved-down"></span></div>');
+    // Navbar scroll effect
+    function handleScroll() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+    
+    // Counter animation function
+    function startCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the value, the faster the animation
         
-        //Dropdown Button
-        $('.main-header li.dropdown .dropdown-btn').on('click', function() {
-            $(this).prev('ul').slideToggle(500);
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const increment = target / speed;
+            
+            const updateCount = () => {
+                const count = +counter.innerText;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCount();
         });
+    }
+    
+    // Intersection Observer for stats section animations
+    function setupStatsAnimation() {
+        const observerOptions = {
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
         
-        
-        //Disable dropdown parent link
-        $('.navigation li.dropdown > a').on('click', function(e) {
-            e.preventDefault();
-        });
-    }
-    
-
-     /*------------------------------------------
-        = RTL Check
-    -------------------------------------------*/
-    // function rtlcheck() {
-    //         if( $( "html" ).attr("dir") == "rtl" ) {
-    //             return true;
-    //         } else {
-    //             return false;
-    //         }
-    //     }
-
-    /*------------------------------------------
-        = Client Logo
-    -------------------------------------------*/
-
-	$(".clients-slider-1").owlCarousel({
-	  loop: true,
-	  items: 1,
-	  dots: false,
-	  nav: false,
-	  autoHeight: false,
-	  touchDrag: true,
-	  mouseDrag: true,
-	  margin: 0,
-	  autoplay: true,
-	  slideSpeed: 300,
-	  navText: ['', ''],
-	  responsive: {
-	    0: {
-	        items: 1,
-	        nav: false,
-	        dots: false,
-	    },
-	    600: {
-	        items: 1,
-	        nav: false,
-	        dots: false,
-	    },
-	    768: {
-	        items: 1,
-	        nav: false,
-	    },
-	    1100: {
-	        items: 1,
-	        nav: false,
-	    }
-	  }
-	});
-
-
-    
-
-    /* ---------------------------------------------
-        Clients SliderThree Column
-     --------------------------------------------- */
-
-	if ($('.clients-slider').length) {
-		$('.clients-slider').owlCarousel({
-			loop:true,
-            rtl:true,
-			margin:50,
-			nav:false,
-			dots:false,
-			smartSpeed: 500,
-			autoplay: 5000,
-			responsive:{
-				0:{
-					items:2
-				},
-				600:{
-					items:3
-				},
-				1024:{
-					items:5
-				},
-				1200:{
-					items:5
-				}
-			}
-		});
-	}
-
-    /* ---------------------------------------------
-        = Services
-     --------------------------------------------- */
-
-    if ($('.services-col-3').length) {
-        $('.services-col-3').owlCarousel({
-            loop:true,
-            margin:50,
-            nav:true,
-            dots:false,
-            smartSpeed: 500,
-            navText: [ '<span class="icofont icofont-curved-left"></span>', '<span class="icofont icofont-curved-right"></span>' ],
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                750: {
-                    items: 1
-                },
-                960: {
-                    items: 3
-                },
-                1170: {
-                    items: 3
-                },
-                1300: {
-                    items: 3
-                }
-            }
-        });
-    }
-
-    /* ---------------------------------------------
-        = Owl Carousel 2 items
-     --------------------------------------------- */
-
-    if ($('.carousel-col-2').length) {
-        $('.carousel-col-2').owlCarousel({
-            loop:true,
-            rtl:true,
-            margin:50,
-            nav:false,
-            dots:true,
-            smartSpeed: 500,
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                750: {
-                    items: 1
-                },
-                960: {
-                    items: 1
-                },
-                1170: {
-                    items: 2
-                },
-                1300: {
-                    items: 2
-                }
-            }
-        });
-    }
-
-
-    /* ---------------------------------------------
-        = Owl Carousel 3 items
-     --------------------------------------------- */
-
-    if ($('.carousel-col-3').length) {
-        $('.carousel-col-3').owlCarousel({
-            loop:true,
-            margin:50,
-            nav:true,
-            dots:false,
-            smartSpeed: 500,
-            navText: [ '<span class="icofont icofont-curved-left"></span>', '<span class="icofont icofont-curved-right"></span>' ],
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                750: {
-                    items: 1
-                },
-                960: {
-                    items: 3
-                },
-                1170: {
-                    items: 3
-                },
-                1300: {
-                    items: 3
-                }
-            }
-        });
-    }
-
-    /* ---------------------------------------------
-        = Owl Carousel 5 items
-     --------------------------------------------- */
-
-    if ($('.carousel-col-5').length) {
-        $('.carousel-col-5').owlCarousel({
-            loop:true,
-            // rtl:true,
-            margin:10,
-            nav:false,
-            dots:true,
-            smartSpeed: 500,
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 2
-                },
-                750: {
-                    items: 3
-                },
-                960: {
-                    items: 3
-                },
-                1170: {
-                    items: 5
-                },
-                1300: {
-                    items: 5
-                }
-            }
-        });
-    }
-
-    /* ---------------------------------------------
-        = Owl Carousel 5 items
-     --------------------------------------------- */
-
-    if ($('.testimonial-1').length) {
-        $('.testimonial-1').owlCarousel({
-            loop:true,
-            // rtl:true,
-            margin:10,
-            nav:false,
-            dots:true,
-            smartSpeed: 500,
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                750: {
-                    items: 1
-                },
-                960: {
-                    items: 1
-                },
-                1170: {
-                    items: 1
-                },
-                1300: {
-                    items: 1
-                }
-            }
-        });
-    }
-    
-
-    /* ---------------------------------------------
-        = Owl Carousel 5 items
-     --------------------------------------------- */
-
-    if ($('.testimonial_style_2').length) {
-        $('.testimonial_style_2').owlCarousel({
-            loop:true,
-            // rtl:true,
-            margin:10,
-            nav:false,
-            dots:true,
-            smartSpeed: 500,
-            autoplay: 5000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                750: {
-                    items: 1
-                },
-                960: {
-                    items: 1
-                },
-                1170: {
-                    items: 1
-                },
-                1300: {
-                    items: 1
-                }
-            }
-        });
-    }
-	
-    /* ---------------------------------------------
-        = Light Box
-     --------------------------------------------- */
-
-	if($('.lightbox-image').length) {
-		$('.lightbox-image').fancybox({
-			openEffect  : 'elastic',
-			closeEffect : 'elastic',
-			helpers : {
-				media : {}
-			}
-		});
-	}
-
-    /* ---------------------------------------------
-        = Scroll to a Specific Div
-     --------------------------------------------- */
-
-	if($('.scroll-to-target').length){
-		$(".scroll-to-target").on('click', function() {
-			var target = $(this).attr('data-target');
-		   // animate
-		   $('html, body').animate({
-			   scrollTop: $(target).offset().top
-			 }, 1000);
-	
-		});
-	}
-    
-    /* ---------------------------------------------
-        = Progressing Bar
-     --------------------------------------------- */
-
-    if($('.progress-levels .progress-box .bar-fill').length){
-        $(".progress-box .bar-fill").each(function() {
-            var progressWidth = $(this).attr('data-percent');
-            $(this).css('width',progressWidth+'%');
-            $(this).parents('.progress-box').children('.percent').html(progressWidth+'%');
-        });
-    }
-         
-    /*------------------------------------------
-        = FUNFACT
-    -------------------------------------------*/  
-
-    if ($(".fun-fact").length) {
-
-        $('.counter').appear();
-
-        $(document.body).on('appear', '.counter', function(e) {
-            var $this = $(this),
-            countTo = $this.attr('data-count');
-
-            $({ countNum: $this.text()}).animate({
-                countNum: countTo
-            }, {
-                duration: 3000,
-                easing:'linear',
-                step: function() {
-                    $this.text(Math.floor(this.countNum));
-                },
-                complete: function() {
-                    $this.text(this.countNum);
-                }
-            });
-        });
-    }
-	
-    /* ---------------------------------------------
-        = Wow Animation
-     --------------------------------------------- */
-
-	if($('.wow').length){
-		var wow = new WOW(
-		  {
-			boxClass:     'wow',      // animated element css class (default is wow)
-			animateClass: 'animated', // animation css class (default is animated)
-			offset:       0,          // distance to the element when triggering the animation (default is 0)
-			mobile:       true,       // trigger animations on mobile devices (default is true)
-			live:         true       // act on asynchronously loaded content (default is true)
-		  }
-		);
-		wow.init();
-	}
-
-
-    /* ---------------------------------------------
-        = portfolio filter set active class
-     --------------------------------------------- */
-
-    $('.portfolio-filter li').on("click",function (event) {
-        $(this).siblings('.active').removeClass('active');
-        $(this).addClass('active');
-        event.preventDefault();
-    });
-
-
-    /* ---------------------------------------------
-        = portfolio masonry
-     --------------------------------------------- */
-
-    $(window).load( function() {
-
-        var $c = $('.portfolio-masonry');
-        if(typeof imagesLoaded === 'function') {
-            imagesLoaded($c, function () {
-
-                setTimeout(function () {
-                    $c.isotope({
-                        itemSelector: '.portfolio-item',
-                        resizesContainer: false,
-                        layoutMode: 'masonry',
-                        filter: "*"
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add animation classes to stat items with staggered delay
+                    document.querySelectorAll('.stat-item').forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animate__animated', item.dataset.animation);
+                            item.style.opacity = 1;
+                        }, index * 150);
                     });
-                }, 500);
-
+                    
+                    // Start the counters after a delay
+                    setTimeout(startCounters, 500);
+                    
+                    // Unobserve once triggered
+                    observer.unobserve(entry.target);
+                }
             });
-        }
-
-    });
-
-    /* ---------------------------------------------
-        = portfolio gallery
-     --------------------------------------------- */
-
-    $('.portfolio-gallery').each(function () { // the containers for all your galleries
-        $(this).find(".popup-gallery,.popup-gallery2").magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true
-            }
-        });
-    });
-
-
-    /* ---------------------------------------------
-        = portfolio filtering
-     --------------------------------------------- */
-
-    $('.portfolio-filter').on('click', 'a', function () {
-        $('#filters button').removeClass('current');
-        $(this).addClass('current');
-        var filterValue = $(this).attr('data-filter');
-        $(this).parents(".portfolio-filter-item").next().isotope({filter: filterValue});
-    });
-
-    /* ---------------------------------------------
-        = popup link
-     --------------------------------------------- */
-
-      if($('.popup-link').length){
-            $('.popup-link').magnificPopup({
-            type: 'image'
-        });
-      }
-
-    /* ---------------------------------------------------------------------------
-	    = Paralex Backgrounds
-	* --------------------------------------------------------------------------- */
-
-	var ua = navigator.userAgent,
-		  isMobileWebkit = /WebKit/.test(ua) && /Mobile/.test(ua);
-		  if( ! isMobileWebkit && jQuery(window).width() >= 768 ){
-			$.stellar({
-				horizontalScrolling	: false,
-				responsive			: true
-			});
-	}
-
-	// Parallax background
-    function bgParallax() {
-        if ($(".parallax").length) {
-            $(".parallax").each(function() {
-                var height = $(this).position().top;
-                var resize     = height - $(window).scrollTop();
-                var doParallax = -(resize/5);
-                var positionValue   = doParallax + "px";
-                var img = $(this).data("bg-image");
-
-                $(this).css({
-                    backgroundImage: "url(" + img + ")",
-                    backgroundPosition: "50%" + positionValue,
-                    backgroundSize: "cover"
-                });
-            });
+        }, observerOptions);
+        
+        // Observe the stats section
+        const statSection = document.querySelector('.stats-section');
+        if (statSection) {
+            observer.observe(statSection);
         }
     }
-
-    /* ---------------------------------------------
-        = Full Screen
-    ---------------------------------------------- */
-
-    if($('.fullScreen').length){
-        $('.fullScreen').css({'height':($(window).height())+'px'});
-        $(window).resize(function(){
-        $('.fullScreen').css({'height':($(window).height())+'px'});
-    });
-    } 
-
-    /*------------------------------------------
-        = Time Countdown
-    -------------------------------------------*/
-
-    if ($('.time-countdown').length) {
-
-        $('.time-countdown').each(function () {
-            var Self = $(this);
-            var countDate = Self.data('countdown-time'); // getting date
-
-            Self.countdown(countDate, function(event) {
-                $(this).html('<li> <div class="box"> <span class="days">'+ event.strftime('%D') +'</span> <span class="timeRef">days</span> </div> </li> <li> <div class="box"> <span class="hours">'+ event.strftime('%H') +'</span> <span class="timeRef">hours</span> </div> </li> <li> <div class="box"> <span class="minutes">'+ event.strftime('%M') +'</span> <span class="timeRef">minutes</span> </div> </li> <li> <div class="box"> <span class="seconds">'+ event.strftime('%S') +'</span> <span class="timeRef">seconds</span> </div> </li>');
+    
+    // Smooth scrolling for navigation links
+    function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (document.querySelector('.nav-links.open')) {
+                    document.querySelector('.nav-links').classList.remove('open');
+                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                // Active link highlighting
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Smooth scroll to target
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust for navbar height
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-    };
-
-
-/* ==========================================================================
-   When document is Scrollig, do
-   ========================================================================== */
-	
-	$(window).on('scroll', function() {
-		headerStyle();
-        bgParallax();
-	});
-	
-/* ==========================================================================
-   When document is loading, do
-   ========================================================================== */
-    $(window).load(function() {
-			handlePreloader();
-            bgParallax();
-
-    });
-
-})(window.jQuery);
-
-
-
+    }
+    
+    // Button hover effects
+    function setupButtonEffects() {
+        const buttons = document.querySelectorAll('.quote-btn, .about-btn');
+        
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.transform = 'translateY(-3px)';
+                button.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translateY(0)';
+                button.style.boxShadow = 'none';
+            });
+        });
+    }
+    
+    // Preload images for smoother experience
+    function preloadImages() {
+        // Add any images you want to preload here
+        const imagesToPreload = [
+            'worker-image.jpg',
+            'stats-image.jpg'
+            // Add more image paths as needed
+        ];
+        
+        imagesToPreload.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+    
+    // Initialize all functions
+    function init() {
+        createMobileMenu();
+        setupStatsAnimation();
+        setupSmoothScrolling();
+        setupButtonEffects();
+        preloadImages();
+        
+        // Event listeners
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', createMobileMenu);
+    }
+    
+    // Run initialization
+    init();
+});

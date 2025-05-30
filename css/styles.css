@@ -1,0 +1,479 @@
+/* Main CSS Styles for Parama Solutions */
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+/* Header styles */
+.top-bar {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 10px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.contact-info {
+    display: flex;
+    gap: 30px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffc107;
+}
+
+/* Logo and navigation */
+/* Updated Logo CSS */
+
+/* Logo container */
+.logo-container {
+    background-color: #ffc107;
+    padding: 20px;
+    width: 250px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+    background-color: #ffca28;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Logo image styles */
+.logo-svg {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.5s ease;
+}
+
+.logo-container:hover .logo-svg {
+    transform: rotate(90deg);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logo-tagline {
+    font-size: 12px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .logo-container {
+        width: 200px;
+    }
+    
+    .logo-svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo-name {
+        font-size: 16px;
+    }
+    
+    .logo-tagline {
+        font-size: 10px;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 0 80px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ffc107;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ffc107;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.dropdown-icon::before {
+    content: "▼";
+    font-size: 10px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-icon:hover::before {
+    transform: rotate(180deg);
+}
+
+.quote-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.quote-btn:hover {
+    background-color: white;
+    color: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-subtitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.about-btn {
+    background-color: #ffc107;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.about-btn:hover {
+    background-color: white;
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero-image-container {
+    width: 45%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+/* Stats section */
+.stats-section {
+    background-color: #f9f9f9;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-image-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.stats-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.stats-counters {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 50px;
+    background-color: white;
+    margin-top: -20px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 -20px 30px rgba(0,0,0,0.1);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+    width: 200px;
+    opacity: 0;
+}
+
+.stat-icon {
+    font-size: 40px;
+    color: #ffc107;
+    margin-bottom: 15px;
+    height: 50px;
+}
+
+.stat-icon i {
+    transition: transform 0.5s ease;
+}
+
+.stat-item:hover .stat-icon i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.stat-counter {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus {
+    font-size: 30px;
+    color: #ffc107;
+    position: relative;
+    top: -10px;
+}
+
+.stat-title {
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Animations for mobile menu */
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.open {
+        max-height: 300px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links a {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .top-bar, .navbar {
+        padding: 10px 40px;
+    }
+    
+    .hero {
+        padding: 60px 40px;
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .hero-image-container {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .stats-counters {
+        padding: 20px 10px;
+    }
+    
+    .stat-item {
+        width: 160px;
+        padding: 15px 10px;
+    }
+    
+    .stat-counter {
+        font-size: 36px;
+    }
+    
+    .stat-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        display: none;
+    }
+    
+    .nav-links {
+        gap: 20px;
+    }
+    
+    .navbar {
+        padding: 0 20px;
+        flex-wrap: wrap;
+    }
+    
+    .logo-container {
+        width: 200px;
+    }
+    
+    .quote-btn {
+        margin: 10px 0;
+    }
+    
+    .hero {
+        padding: 40px 20px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .stats-counters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 250px;
+    }
+}
