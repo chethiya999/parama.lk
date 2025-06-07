@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parama Solutions - Innovating for a Greener Tomorrow</title>
+    <title>Parama Industries - Innovating for a Greener Tomorrow</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/footer-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -22,34 +21,52 @@
     <div class="navbar">
         <div class="logo-container animate__animated animate__fadeIn">
             <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100" fill="white">
-                    <circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="8"/>
-                    <path d="M30,50 L70,50 M50,30 L50,70" stroke="white" stroke-width="8"/>
-                    <circle cx="50" cy="50" r="15" fill="white"/>
-                </svg>
-                <div class="logo-text">
-                    <div class="logo-name">BOLDIXER</div>
-                    <div class="logo-tagline">CONSTUTION CO.</div>
-                </div>
+                <img src="images/logo/logo.png" alt="Parama Solutions Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="placeholder-image" style="display:none; border-radius:8px; font-size:14px; font-weight:bold;">PARAMA LOGO</div>
             </div>
         </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
         <div class="nav-links animate__animated animate__fadeIn">
             <a href="index.html" class="active">Home</a>
-            <a href="#product" class="dropdown-icon">Product</a>
-            <a href="#service" class="dropdown-icon">Service</a>
-            <a href="#about">About us</a>
+
+            <div class="dropdown">
+                <a href="product-pvc.html">Product</a>
+                <div class="dropdown-content">
+                    <a href="product-pvc.html">PVC Pipes</a>
+                    <a href="product-conduit.html">Electronic Conduit</a>
+                    <a href="product-alkathene.html">Alkathene</a>
+                    <a href="product-Garden Hose.html">Garden Hose</a>
+                    <a href="product-recycling.html">Recycling</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#service">Service</a>
+                <div class="dropdown-content">
+                    <a href="#installation">Installation</a>
+                    <a href="#consulting">Consulting</a>
+                    <a href="#support">Support</a>
+                </div>
+            </div>
+
+            <a href="about-us.html">About us</a>
             <a href="#contact">Contact Us</a>
         </div>
+
         <a href="#quote" class="quote-btn animate__animated animate__fadeIn">Get a Quote</a>
     </div>
     
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <h1 class="hero-title animate__animated animate__fadeInUp">Welcome to Parama Solutions</h1>
-            <h2 class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Innovating for a Greener Tomorrow! Tomorrow!</h2>
+            <h1 class="hero-title animate__animated animate__fadeInUp">Welcome to Parama Industries</h1>
+            <h2 class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Innovating for a Greener Tomorrow!</h2>
             <p class="hero-text animate__animated animate__fadeInUp animate__delay-2s">
-                At Parama Solutions, we are dedicated to building a sustainable future through
+                At Parama Industries, we are dedicated to building a sustainable future through
                 innovative solutions in PVC Alkathene Manufacturing, Plastic Recycling, and
                 Gardening Services. Our commitment to quality, sustainability, and community
                 development drives everything we do.
@@ -57,14 +74,18 @@
             <a href="#about" class="about-btn animate__animated animate__fadeInUp animate__delay-3s">About Company</a>
         </div>
         <div class="hero-image-container animate__animated animate__fadeInRight animate__delay-1s">
-            <img src="worker-image.jpg" alt="Construction worker with safety helmet" class="hero-image">
+            <img src="images/worker-image.jpg" alt="Construction worker with safety helmet" class="hero-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-image" style="display:none; height:300px;">Hero Image</div>
         </div>
     </div>
     
     <!-- Stats Section -->
     <div class="stats-section">
         <div class="stats-image-container">
-            <img src="stats-image.jpg" alt="Construction team working" class="stats-image">
+            <img src="images/stats-image.jpg" alt="Construction team working" class="stats-image"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="placeholder-image" style="display:none; height:200px;">Stats Background Image</div>
         </div>
         
         <div class="stats-counters">
@@ -110,85 +131,85 @@
         </div>
     </div>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Description Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Parama Solutions" class="logo-img" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-image" style="display:none; width:50px; height:50px; border-radius:50%; font-size:10px;">LOGO</div>
+                    <div class="logo-text">
+                        <h2>PARAMA Industries</h2>
+                        <p>GREEN TECHNOLOGY CO.</p>
+                    </div>
+                </div>
+                <div class="footer-description">
+                    <p>Building a sustainable future through innovative solutions in PVC manufacturing, plastic recycling, and gardening services. Quality, sustainability, and community development drive everything we do.</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links Section -->
+            <div class="footer-nav">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product-pvc.html">Products</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Form Section -->
+            <div class="footer-subscribe">
+                <form id="subscribe-form">
+                    <div class="form-group">
+                        <input type="text" id="fullname" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Enter Email" required>
+                    </div>
+                    <button type="submit" class="subscribe-btn">Subscribe Now <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+            <!-- Blog Posts Section -->
+            <div class="footer-blog">
+                <div class="blog-post">
+                    <a href="#blog-post-1">
+                        <h3>Sustainable solutions for a greener tomorrow</h3>
+                        <p class="post-date">November 28, 2024</p>
+                    </a>
+                </div>
+                <div class="blog-post">
+                    <a href="#blog-post-2">
+                        <h3>Innovation in PVC manufacturing technology</h3>
+                        <p class="post-date">October 15, 2024</p>
+                    </a>
+                </div>
+                <div class="blog-post">
+                    <a href="#blog-post-3">
+                        <h3>Recycling initiatives and environmental impact</h3>
+                        <p class="post-date">September 20, 2024</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <div class="copyright-text">
+                <p>Copyright © Parama Solutions - 2024</p>
+            </div>
+            <div class="footer-legal">
+                <a href="#terms">Terms of Use</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
     <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-container">
-        <!-- Logo and Description Section -->
-        <div class="footer-brand">
-            <div class="footer-logo">
-                <img src="logo.png" alt="BOLDIXER" class="logo-img">
-                <div class="logo-text">
-                    <h2>BOLDIXER</h2>
-                    <p>CONSTUTION CO.</p>
-                </div>
-            </div>
-            <div class="footer-description">
-                <p>Learning with us is fun & addictive. Earn points for correct answers, race against the clock, and level up. Our bite-sized lessons are effective, and we are good</p>
-            </div>
-        </div>
-
-        <!-- Navigation Links Section -->
-        <div class="footer-nav">
-            <ul class="footer-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#team">Product</a></li>
-                <li><a href="#portfolio">Services</a></li>
-                <li><a href="#blog">About us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-
-        <!-- Subscribe Form Section -->
-        <div class="footer-subscribe">
-            <form id="subscribe-form">
-                <div class="form-group">
-                    <input type="text" id="fullname" placeholder="Enter Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Enter Email" required>
-                </div>
-                <button type="submit" class="subscribe-btn">Subscribe Now <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-
-        <!-- Blog Posts Section -->
-        <div class="footer-blog">
-            <div class="blog-post">
-                <a href="#blog-post-1">
-                    <h3>As we've all discovered by now, the world can change</h3>
-                    <p class="post-date">November 28, 2020</p>
-                </a>
-            </div>
-            <div class="blog-divider"></div>
-            <div class="blog-post">
-                <a href="#blog-post-2">
-                    <h3>Houses are in the upcoming raft helper alone</h3>
-                    <p class="post-date">August 22, 2020</p>
-                </a>
-            </div>
-            <div class="blog-divider"></div>
-            <div class="blog-post">
-                <a href="#blog-post-3">
-                    <h3>Cranes, hammers and nails. This is the foundation</h3>
-                    <p class="post-date">May 20, 2020</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Copyright Section -->
-    <div class="footer-copyright">
-        <div class="copyright-text">
-            <p>Copyright © Webstie - 2020</p>
-        </div>
-        <div class="footer-legal">
-            <a href="#terms">Terms of Use</a>
-            <a href="#privacy">Privacy Policy</a>
-        </div>
-    </div>
-</footer>
-<script src="js/footer-script.js"></script>
 </html>

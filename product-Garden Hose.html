@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parama Alkathene - Parama Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/alkathene-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <a href="tel:+94777898445"><i class="fas fa-phone"></i> +94 77 789 8445</a>
+            <a href="mailto:info@domain.com"><i class="fas fa-envelope"></i> info@domain.com</a>
+        </div>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo-container animate__animated animate__fadeIn">
+            <div class="logo">
+                <img src="images/logo/logo.png" alt="Parama Solutions Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="placeholder-image" style="display:none; border-radius:8px; font-size:14px; font-weight:bold;">PARAMA LOGO</div>
+            </div>
+        </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="nav-links animate__animated animate__fadeIn">
+            <a href="index.html">Home</a>
+
+            <div class="dropdown">
+                <a href="product-pvc.html" class="active">Product</a>
+                <div class="dropdown-content">
+                    <a href="product-pvc.html">PVC Pipes</a>
+                    <a href="product-conduit.html">Electronic Conduit</a>
+                    <a href="product-alkathene.html">Alkathene</a>
+                    <a href="product-Garden Hose.html">Garden Hose</a>
+                    <a href="product-garden.html">Garden Products</a>
+                    <a href="product-recycling.html">Recycling</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="#service">Service</a>
+                <div class="dropdown-content">
+                    <a href="#installation">Installation</a>
+                    <a href="#consulting">Consulting</a>
+                    <a href="#support">Support</a>
+                </div>
+            </div>
+
+            <a href="#about">About us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+        <a href="#quote" class="quote-btn animate__animated animate__fadeIn">Get a Quote</a>
+    </div>
+
+  
+
+    <!-- Product Content -->
+    <div class="product-page-container">
+        <!-- Product Header -->
+        <div class="product-header">
+            <h1>Parama Garden Hose</h1>
+        </div>
+        
+        <!-- Main Content Container -->
+        <div class="main-content">
+            <!-- Left Section -->
+            <div class="left-section">
+                <!-- Product Image -->
+                <div class="product-image-container">
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=300&fit=crop&crop=center" 
+                         alt="Parama Alkathene Product" 
+                         class="product-image"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-image" style="display:none;">
+                        <i class="fas fa-industry" style="font-size:48px; color:#999;"></i>
+                        <p style="margin-top:10px; color:#999;">Alkathene Product</p>
+                    </div>
+                </div>
+                
+                <!-- Product Title and Description -->
+                <div class="product-info">
+                    <h2>High-Quality Garden Hose</h2>
+                    <p class="product-description">
+                        A colorful, water-resistant, insulated jacket that is constructed with eco-friendly and recycled materials. Perfect for various industrial and residential applications with superior durability and performance.
+                    </p>
+                </div>
+                
+                <!-- Key Features -->
+                <div class="key-features">
+                    <h3>Key Features:</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> UV resistant for outdoor use</li>
+                        <li><i class="fas fa-check"></i> Corrosion and chemical resistant</li>
+                        <li><i class="fas fa-check"></i> Easy installation and maintenance</li>
+                        <li><i class="fas fa-check"></i> Eco-friendly manufacturing</li>
+                        <li><i class="fas fa-check"></i> High pressure tolerance</li>
+                        <li><i class="fas fa-check"></i> Multiple length options</li>
+                    </ul>
+                </div>
+                
+                <!-- Size Selection -->
+                <div class="size-selection">
+                    <h3><i class="fas fa-ruler"></i> Select Pipe Diameter</h3>
+                    <div class="size-buttons">
+                        <button class="size-btn active" data-size="1/2">1/2"</button>
+                        <button class="size-btn" data-size="3/4">3/4"</button>
+                        <button class="size-btn" data-size="1">1"</button>
+                        <button class="size-btn" data-size="1 1/2">1 1/2"</button>
+                        <button class="size-btn" data-size="2">2"</button>
+                    </div>
+                </div>
+                
+                <!-- Length Selection -->
+                <div class="length-selection">
+                    <h3><i class="fas fa-arrows-alt-h"></i> Select Length</h3>
+                    <div class="length-buttons">
+                        <button class="length-btn active" data-length="100">100'-0"</button>
+                        <button class="length-btn" data-length="200">200'-0"</button>
+                    </div>
+                </div>
+                
+                <!-- Quantity Selection -->
+                <div class="quantity-section">
+                    <h3><i class="fas fa-sort-numeric-up"></i> Quantity</h3>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1" max="100" id="quantity">
+                        <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="add-to-cart-btn" onclick="addToCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        ADD TO CART
+                    </button>
+                    <button class="request-quote-btn" onclick="requestQuote()">
+                        <i class="fas fa-file-alt"></i>
+                        REQUEST QUOTE
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Right Section -->
+            <div class="right-section">
+                <!-- Technical Specifications -->
+                <div class="tech-specs">
+                    <h3><i class="fas fa-cog"></i> Technical Specifications</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Nominal Diameter</th>
+                                <th colspan="2">Length</th>
+                            </tr>
+                            <tr>
+                                <th>Foot</th>
+                                <th>m</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">1/2"</td>
+                                <td>100'-0"</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>200'-0"</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">3/4"</td>
+                                <td>100'-0"</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>200'-0"</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">1"</td>
+                                <td>100'-0"</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>200'-0"</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">1 1/2"</td>
+                                <td>100'-0"</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>200'-0"</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">2"</td>
+                                <td>100'-0"</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>200'-0"</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Additional Specifications -->
+                <div class="additional-specs">
+                    <h4>Additional Specifications:</h4>
+                    <div class="spec-row">
+                        <span class="spec-label">Material:</span>
+                        <span class="spec-value">High-grade Alkathene</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Pressure Rating:</span>
+                        <span class="spec-value">Up to 250 PSI</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Temperature Range:</span>
+                        <span class="spec-value">-20°C to +70°C</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Color:</span>
+                        <span class="spec-value">Black</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Warranty:</span>
+                        <span class="spec-value">7 Years</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Standard:</span>
+                        <span class="spec-value">ISO 4427</span>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-section">
+                    <h3><i class="fas fa-phone-alt"></i> Contact Number</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">Sales</span>
+                            <span class="contact-number" onclick="callNumber('+94771197144')">: +94 77 119 7144</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Hot Line</span>
+                            <span class="contact-number" onclick="callNumber('+94777898445')">: +94 77 789 8445</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">General</span>
+                            <span class="contact-number" onclick="callNumber('+94777392975')">: +94 77 739 2975</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-actions">
+                        <a href="mailto:info@domain.com" class="contact-btn email-btn">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                        <a href="tel:+94777898445" class="contact-btn call-btn">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Features Section -->
+        <div class="features-section">
+            <div class="features-container">
+                <h2><i class="fas fa-star"></i> Product Applications</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Residential Use</h4>
+                        <p>Perfect for home plumbing and water supply systems</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h4>Industrial Applications</h4>
+                        <p>Ideal for heavy-duty industrial piping requirements</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4>Agricultural Use</h4>
+                        <p>Excellent for irrigation and agricultural water systems</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Commercial Projects</h4>
+                        <p>Suitable for large-scale commercial installations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <div class="related-products">
+            <div class="related-container">
+                <h3><i class="fas fa-th-large"></i> Related Products</h3>
+                <div class="related-grid">
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-pipe"></i>
+                        </div>
+                        <h4>PVC Irrigation Pipes</h4>
+                        <p>High-quality pipes for water distribution</p>
+                        <a href="product-pvc.html" class="related-link">View Details</a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Electronic Conduit</h4>
+                        <p>Protection solutions for electrical cables</p>
+                        <a href="product-conduit.html" class="related-link">View Details</a>
+                    </div>
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Installation Accessories</h4>
+                        <p>Complete fittings and installation tools</p>
+                        <a href="#accessories" class="related-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and Description Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Parama Solutions" class="logo-img" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="placeholder-image" style="display:none; width:50px; height:50px; border-radius:50%; font-size:10px;">LOGO</div>
+                    <div class="logo-text">
+                        <h2>PARAMA SOLUTIONS</h2>
+                        <p>GREEN TECHNOLOGY CO.</p>
+                    </div>
+                </div>
+                <div class="footer-description">
+                    <p>Building a sustainable future through innovative solutions in PVC manufacturing, plastic recycling, and gardening services. Quality, sustainability, and community development drive everything we do.</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links Section -->
+            <div class="footer-nav">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product-pvc.html">Products</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Subscribe Form Section -->
+            <div class="footer-subscribe">
+                <form id="subscribe-form">
+                    <div class="form-group">
+                        <input type="text" id="fullname" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Enter Email" required>
+                    </div>
+                    <button type="submit" class="subscribe-btn">Subscribe Now <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+            <!-- Blog Posts Section -->
+            <div class="footer-blog">
+                <div class="blog-post">
+                    <a href="#blog-post-1">
+                        <h3>Alkathene pipes for modern infrastructure</h3>
+                        <p class="post-date">December 20, 2024</p>
+                    </a>
+                </div>
+                <div class="blog-post">
+                    <a href="#blog-post-2">
+                        <h3>Industrial applications of alkathene materials</h3>
+                        <p class="post-date">November 30, 2024</p>
+                    </a>
+                </div>
+                <div class="blog-post">
+                    <a href="#blog-post-3">
+                        <h3>Sustainable piping solutions for agriculture</h3>
+                        <p class="post-date">October 25, 2024</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <div class="copyright-text">
+                <p>Copyright © Parama Solutions - 2024</p>
+            </div>
+            <div class="footer-legal">
+                <a href="#terms">Terms of Use</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script src="js/alkathene-script.js"></script>
+</body>
+</html>

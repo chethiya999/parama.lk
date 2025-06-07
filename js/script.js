@@ -4,31 +4,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu functionality
     function createMobileMenu() {
-        if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-btn')) {
-            const navbar = document.querySelector('.navbar');
-            const navLinks = document.querySelector('.nav-links');
-            
-            const mobileMenuBtn = document.createElement('button');
-            mobileMenuBtn.className = 'mobile-menu-btn';
-            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-            
-            // Insert before the nav-links
-            navbar.insertBefore(mobileMenuBtn, navLinks);
-            
-            // Event listener for mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
             mobileMenuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('open');
                 
                 // Change icon based on menu state
+                const icon = mobileMenuBtn.querySelector('i');
                 if (navLinks.classList.contains('open')) {
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    icon.className = 'fas fa-times';
                 } else {
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    icon.className = 'fas fa-bars';
                 }
             });
-        } else if (window.innerWidth > 768 && document.querySelector('.mobile-menu-btn')) {
-            document.querySelector('.mobile-menu-btn').remove();
-            document.querySelector('.nav-links').classList.remove('open');
         }
     }
     
@@ -105,9 +95,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 
                 // Close mobile menu if open
-                if (document.querySelector('.nav-links.open')) {
-                    document.querySelector('.nav-links').classList.remove('open');
-                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                const navLinks = document.querySelector('.nav-links');
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                if (navLinks && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) icon.className = 'fas fa-bars';
                 }
                 
                 // Active link highlighting
@@ -147,13 +140,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Subscribe form functionality
+    function setupSubscribeForm() {
+        const subscribeForm = document.getElementById('subscribe-form');
+        if (subscribeForm) {
+            subscribeForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const fullname = document.getElementById('fullname').value;
+                const email = document.getElementById('email').value;
+                
+                if (fullname && email) {
+                    // Show success message
+                    alert('Thank you for subscribing! We will keep you updated with our latest news and services.');
+                    
+                    // Reset form
+                    subscribeForm.reset();
+                    
+                    // Optional: You can replace alert with a custom notification
+                    // showNotification('Thank you for subscribing!', 'success');
+                }
+            });
+        }
+    }
+    
     // Preload images for smoother experience
     function preloadImages() {
-        // Add any images you want to preload here
         const imagesToPreload = [
-            'worker-image.jpg',
-            'stats-image.jpg'
-            // Add more image paths as needed
+            'images/worker-image.jpg',
+            'images/stats-image.jpg',
+            'images/logo/logo.png',
+            'images/logo.png'
         ];
         
         imagesToPreload.forEach(src => {
@@ -162,19 +179,200 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Handle image loading errors gracefully
+    function setupImageErrorHandling() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                console.log('Image failed to load:', this.src);
+                // The onerror in HTML will handle the placeholder display
+            });
+        });
+    }
+    
+    // Dropdown functionality for mobile
+    function setupMobileDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('a');
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            
+            if (window.innerWidth <= 768 && dropdownLink && dropdownContent) {
+                dropdownLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Toggle dropdown content visibility
+                    if (dropdownContent.style.display === 'block') {
+                        dropdownContent.style.display = 'none';
+                    } else {
+                        // Close other dropdowns first
+                        document.querySelectorAll('.dropdown-content').forEach(content => {
+                            content.style.display = 'none';
+                        });
+                        dropdownContent.style.display = 'block';
+                    }
+                });
+            }
+        });
+    }
+    
+    // Active navigation highlighting based on scroll position
+    function setupActiveNavigation() {
+        const sections = document.querySelectorAll('section, .hero, .stats-section');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+        
+        function highlightNavigation() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id') || '';
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightNavigation);
+    }
+    
+    // Custom notification function (alternative to alert)
+    function showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'success' ? '#28a745' : '#007bff'};
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        `;
+        notification.textContent = message;
+        
+        // Add to page
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+    
     // Initialize all functions
     function init() {
         createMobileMenu();
         setupStatsAnimation();
         setupSmoothScrolling();
         setupButtonEffects();
+        setupSubscribeForm();
         preloadImages();
+        setupImageErrorHandling();
+        setupMobileDropdowns();
+        setupActiveNavigation();
         
         // Event listeners
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', createMobileMenu);
+        window.addEventListener('resize', () => {
+            // Close mobile menu on resize
+            const navLinks = document.querySelector('.nav-links');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (navLinks && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
+            
+            // Reinitialize mobile dropdowns
+            setupMobileDropdowns();
+        });
     }
     
     // Run initialization
     init();
+    
+    // Export functions for external use (optional)
+    window.ParamaSolutions = {
+        showNotification,
+        startCounters,
+        setupMobileDropdowns
+    };
 });
+
+// Additional utility functions
+
+// Function to validate email
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Function to format phone numbers
+function formatPhoneNumber(phoneNumber) {
+    const cleaned = phoneNumber.replace(/\D/g, '');
+    const match = cleaned.match(/^(\d{2})(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+        return '+' + match[1] + ' ' + match[2] + ' ' + match[3] + ' ' + match[4];
+    }
+    return phoneNumber;
+}
+
+// Function to handle contact form submissions (can be extended)
+function handleContactForm(formData) {
+    // This function can be extended to handle contact form submissions
+    console.log('Contact form data:', formData);
+    
+    // Example: Send data to server
+    // fetch('/contact', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(formData)
+    // });
+}
+
+// Function to get current page section
+function getCurrentSection() {
+    const sections = document.querySelectorAll('section, .hero, .stats-section');
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id') || section.className;
+        }
+    });
+    
+    return current;
+}
+
+// Console welcome message
+console.log('%c🌱 Welcome to Parama Solutions! 🌱', 'color: #28a745; font-size: 16px; font-weight: bold;');
+console.log('%cInnovating for a Greener Tomorrow!', 'color: #ffc107; font-size: 14px;');
