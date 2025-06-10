@@ -1,0 +1,1266 @@
+/* ===================================
+   PARAMA PLASTIC PALLETS - MAIN STYLESHEET
+   Created: 2025
+   Description: Complete styling for plastic pallets product page
+   =================================== */
+
+/* ===================================
+   1. RESET AND BASE STYLES
+   =================================== */
+
+/* Universal reset to ensure consistent styling across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and borders in element width/height */
+}
+
+/* Base body styling */
+body {
+    font-family: 'Arial', sans-serif; /* Main font family */
+    line-height: 1.6; /* Improved readability */
+    color: #333; /* Default text color */
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Main container for page content with responsive max-width */
+.container {
+    max-width: 1200px; /* Maximum width for large screens */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 20px; /* Side padding for smaller screens */
+}
+
+/* ===================================
+   2. TOP BAR SECTION
+   =================================== */
+
+/* Top information bar with contact details */
+.top-bar {
+    background-color: #2c3e50; /* Dark blue-gray background */
+    color: white; /* White text */
+    padding: 8px 0; /* Vertical padding */
+    font-size: 0.9rem; /* Smaller font for header info */
+}
+
+/* Top bar container layout */
+.top-bar .container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space items apart */
+    align-items: center; /* Vertical center alignment */
+}
+
+/* Left and right sections of top bar */
+.top-bar-left,
+.top-bar-right {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    gap: 20px; /* Space between items */
+}
+
+/* Individual spans in top bar (phone, email, hours) */
+.top-bar span {
+    display: flex; /* Icon and text layout */
+    align-items: center; /* Vertical alignment */
+    gap: 5px; /* Small gap between icon and text */
+}
+
+/* Social media links container */
+.social-links {
+    display: flex; /* Horizontal layout */
+    gap: 10px; /* Space between social icons */
+}
+
+/* Individual social media links */
+.social-links a {
+    color: white; /* White color for visibility */
+    font-size: 1rem; /* Standard icon size */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Social links hover effect */
+.social-links a:hover {
+    color: #f1f549; /* Brand yellow on hover */
+}
+
+/* ===================================
+   3. MAIN NAVIGATION
+   =================================== */
+
+/* Main navigation bar */
+.main-nav {
+    background: white; /* White background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: sticky; /* Stick to top when scrolling */
+    top: 0; /* Stick at very top */
+    z-index: 1000; /* High z-index to stay above other content */
+}
+
+/* Navigation container layout */
+.main-nav .container {
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Logo left, actions right */
+    align-items: center; /* Vertical center alignment */
+    padding: 15px 20px; /* Comfortable padding */
+}
+
+/* Logo/brand styling */
+.nav-brand .logo {
+    height: 50px; /* Fixed height for consistency */
+    width: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation menu list */
+.nav-menu ul {
+    display: flex; /* Horizontal menu layout */
+    list-style: none; /* Remove bullet points */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    gap: 30px; /* Space between menu items */
+}
+
+/* Individual navigation list items */
+.nav-links li {
+    position: relative; /* For dropdown positioning */
+}
+
+/* Navigation link styling */
+.nav-link {
+    text-decoration: none; /* Remove underlines */
+    color: #333; /* Dark text color */
+    font-weight: 500; /* Medium font weight */
+    padding: 10px 0; /* Vertical padding for click area */
+    transition: color 0.3s ease; /* Smooth color transition */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Center align with icons */
+    gap: 5px; /* Small gap between text and icons */
+}
+
+/* Navigation link hover and active states */
+.nav-link:hover,
+.nav-link.active {
+    color: #f1f549; /* Brand yellow for active/hover */
+}
+
+/* ===================================
+   4. DROPDOWN MENU
+   =================================== */
+
+/* Dropdown menu container (hidden by default) */
+.dropdown-content {
+    display: none; /* Hidden until hover */
+    position: absolute; /* Positioned relative to parent */
+    top: 100%; /* Position below the nav item */
+    left: 0; /* Align with left edge */
+    background: white; /* White background */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 0; /* Vertical padding */
+    min-width: 200px; /* Minimum width */
+    z-index: 1000; /* High z-index */
+}
+
+/* Show dropdown on parent hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown */
+}
+
+/* Dropdown link styling */
+.dropdown-content a {
+    display: block; /* Full width clickable area */
+    padding: 10px 20px; /* Comfortable padding */
+    color: #333; /* Dark text */
+    text-decoration: none; /* No underlines */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Dropdown link hover effect */
+.dropdown-content a:hover {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #f1f549; /* Brand yellow text */
+}
+
+/* ===================================
+   5. NAVIGATION ACTIONS
+   =================================== */
+
+/* Container for navigation action buttons */
+.nav-actions {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    gap: 15px; /* Space between action items */
+}
+
+/* Search and cart button styling */
+.search-btn,
+.cart-btn {
+    background: none; /* Transparent background */
+    border: none; /* No borders */
+    font-size: 1.2rem; /* Larger icon size */
+    color: #333; /* Dark color */
+    cursor: pointer; /* Pointer cursor */
+    padding: 8px; /* Padding for click area */
+    border-radius: 50%; /* Circular shape */
+    transition: all 0.3s ease; /* Smooth transitions */
+    position: relative; /* For cart count positioning */
+}
+
+/* Search and cart button hover effects */
+.search-btn:hover,
+.cart-btn:hover {
+    background-color: #f8f9fa; /* Light background on hover */
+    color: #f1f549; /* Brand color on hover */
+}
+
+/* Cart count badge */
+.cart-count {
+    position: absolute; /* Positioned relative to cart button */
+    top: -5px; /* Above the button */
+    right: -5px; /* To the right of button */
+    background: #dc3545; /* Red background */
+    color: white; /* White text */
+    border-radius: 50%; /* Circular shape */
+    width: 20px; /* Fixed width */
+    height: 20px; /* Fixed height */
+    font-size: 0.7rem; /* Small font size */
+    display: flex; /* Flex for centering */
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center */
+}
+
+/* Get quote button styling */
+.quote-btn {
+    background: linear-gradient(135deg, #f1f549, #d4ed30); /* Brand gradient */
+    color: #333; /* Dark text for contrast */
+    border: none; /* No borders */
+    padding: 10px 20px; /* Comfortable padding */
+    border-radius: 25px; /* Rounded pill shape */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+/* Quote button hover effect */
+.quote-btn:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* ===================================
+   6. MOBILE MENU TOGGLE
+   =================================== */
+
+/* Mobile menu hamburger button (hidden on desktop) */
+.mobile-menu-toggle {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Vertical stacking */
+    cursor: pointer; /* Pointer cursor */
+    gap: 3px; /* Small gap between lines */
+}
+
+/* Hamburger menu lines */
+.mobile-menu-toggle span {
+    width: 25px; /* Line width */
+    height: 3px; /* Line thickness */
+    background: #333; /* Dark color */
+    border-radius: 3px; /* Slightly rounded ends */
+    transition: 0.3s; /* Smooth transition for animations */
+}
+
+/* ===================================
+   7. MAIN CONTENT AREA
+   =================================== */
+
+/* Main content wrapper */
+.main-content {
+    padding: 20px 0; /* Vertical padding */
+}
+
+/* ===================================
+   8. BREADCRUMB NAVIGATION
+   =================================== */
+
+/* Breadcrumb navigation styling */
+.breadcrumb {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    gap: 10px; /* Space between breadcrumb items */
+    margin-bottom: 20px; /* Space below breadcrumbs */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #666; /* Gray text color */
+}
+
+/* Breadcrumb links */
+.breadcrumb a {
+    color: #666; /* Gray color */
+    text-decoration: none; /* No underlines */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Breadcrumb link hover effect */
+.breadcrumb a:hover {
+    color: #f1f549; /* Brand color on hover */
+}
+
+/* ===================================
+   9. PRODUCT HEADER
+   =================================== */
+
+/* Product header section */
+.product-header {
+    text-align: center; /* Center align content */
+    margin-bottom: 30px; /* Space below header */
+}
+
+/* Product header title styling */
+.product-header h1 {
+    background: linear-gradient(135deg, #f1f549, #d4ed30); /* Brand gradient background */
+    color: #333; /* Dark text for contrast */
+    padding: 20px 50px; /* Generous padding */
+    border-radius: 50px; /* Pill shape */
+    font-size: 2rem; /* Large font size */
+    font-weight: bold; /* Bold text */
+    display: inline-block; /* Inline block for sizing */
+    box-shadow: 0 8px 25px rgba(241, 245, 73, 0.3); /* Shadow with brand color */
+}
+
+/* ===================================
+   10. PRODUCT SECTION
+   =================================== */
+
+/* Main product section container */
+.product-section {
+    background: white; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Generous padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 40px; /* Space below section */
+}
+
+/* Product layout grid */
+.product-layout {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: 1fr 400px; /* Main content and sidebar */
+    gap: 40px; /* Large gap between columns */
+}
+
+/* ===================================
+   11. PRODUCT LEFT COLUMN
+   =================================== */
+
+/* Left column container */
+.product-left {
+    display: flex; /* Vertical flex layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 30px; /* Space between sections */
+}
+
+/* Product image container */
+.product-image-container {
+    position: relative; /* For absolute positioned children */
+}
+
+/* Main product image */
+.main-product-image {
+    width: 100%; /* Full width */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio, crop if needed */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+/* Main image hover effect */
+.main-product-image:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Image thumbnail gallery */
+.image-gallery {
+    display: flex; /* Horizontal layout */
+    gap: 10px; /* Space between thumbnails */
+    margin-top: 15px; /* Space above gallery */
+    justify-content: center; /* Center align thumbnails */
+}
+
+/* Individual thumbnail images */
+.thumb-image {
+    width: 80px; /* Fixed width */
+    height: 80px; /* Fixed height (square) */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    border: 3px solid transparent; /* Transparent border for hover effect */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Thumbnail hover and active states */
+.thumb-image:hover,
+.thumb-image.active {
+    border-color: #f1f549; /* Brand color border */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Product description section */
+.product-description {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Light gradient background */
+    padding: 25px; /* Comfortable padding */
+    border-radius: 12px; /* Rounded corners */
+    border-left: 5px solid #f1f549; /* Brand color accent border */
+}
+
+/* Product description text */
+.product-description p {
+    font-size: 1.1rem; /* Slightly larger font */
+    color: #666; /* Gray text color */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 25px; /* Space below paragraph */
+}
+
+/* ===================================
+   12. COLOR SELECTION
+   =================================== */
+
+/* Color selection section */
+.color-selection {
+    margin-bottom: 25px; /* Space below section */
+}
+
+/* Color selection heading */
+.color-selection h4 {
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Space below heading */
+    font-size: 1.1rem; /* Slightly larger font */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Vertical center alignment */
+    gap: 10px; /* Space between icon and text */
+}
+
+/* Color options container */
+.color-options {
+    display: flex; /* Horizontal layout */
+    gap: 10px; /* Space between color buttons */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* Individual color buttons */
+.color-btn {
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height (square) */
+    border: 3px solid transparent; /* Transparent border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.3s ease; /* Smooth transitions */
+    position: relative; /* For checkmark positioning */
+}
+
+/* Color button hover and active states */
+.color-btn:hover,
+.color-btn.active {
+    border-color: #333; /* Dark border on hover/active */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Checkmark for active color */
+.color-btn.active::after {
+    content: '✓'; /* Checkmark character */
+    position: absolute; /* Positioned relative to button */
+    top: 50%; /* Vertical center */
+    left: 50%; /* Horizontal center */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    color: white; /* White checkmark */
+    font-weight: bold; /* Bold checkmark */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
+}
+
+/* ===================================
+   13. QUANTITY SELECTION
+   =================================== */
+
+/* Quantity selection section */
+.quantity-selection {
+    margin-bottom: 25px; /* Space below section */
+}
+
+/* Quantity selection heading */
+.quantity-selection h4 {
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Space below heading */
+    font-size: 1.1rem; /* Slightly larger font */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Vertical center alignment */
+    gap: 10px; /* Space between icon and text */
+}
+
+/* Quantity controls container */
+.quantity-controls {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    gap: 15px; /* Space between controls */
+}
+
+/* Quantity increase/decrease buttons */
+.qty-btn {
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height (circular) */
+    border: 2px solid #dee2e6; /* Light gray border */
+    background: white; /* White background */
+    border-radius: 50%; /* Circular shape */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1.2rem; /* Larger font for symbols */
+    font-weight: bold; /* Bold symbols */
+    transition: all 0.3s ease; /* Smooth transitions */
+    display: flex; /* Flex for centering */
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center */
+}
+
+/* Quantity button hover effect */
+.qty-btn:hover {
+    border-color: #f1f549; /* Brand color border */
+    background-color: #fffef0; /* Light yellow background */
+}
+
+/* Quantity input field */
+.qty-input {
+    width: 80px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    border: 2px solid #dee2e6; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center align text */
+    font-size: 1.1rem; /* Slightly larger font */
+    font-weight: 500; /* Medium font weight */
+}
+
+/* Quantity input focus state */
+.qty-input:focus {
+    outline: none; /* Remove default outline */
+    border-color: #f1f549; /* Brand color border on focus */
+}
+
+/* ===================================
+   14. ACTION BUTTONS
+   =================================== */
+
+/* Action buttons container */
+.action-buttons {
+    display: flex; /* Horizontal layout */
+    gap: 15px; /* Space between buttons */
+}
+
+/* Base button styling */
+.btn {
+    padding: 15px 25px; /* Comfortable padding */
+    border: none; /* No borders */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: all 0.3s ease; /* Smooth transitions */
+    text-transform: uppercase; /* Uppercase text */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Vertical center alignment */
+    gap: 8px; /* Space between icon and text */
+    flex: 1; /* Equal width buttons */
+    justify-content: center; /* Center align content */
+}
+
+/* Primary button (Add to Cart) */
+.btn-primary {
+    background: linear-gradient(135deg, #ffc107, #ffb300); /* Orange gradient */
+    color: #333; /* Dark text for contrast */
+}
+
+/* Success button (Request Quote) */
+.btn-success {
+    background: linear-gradient(135deg, #28a745, #20c997); /* Green gradient */
+    color: white; /* White text */
+}
+
+/* Secondary button styling */
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #495057); /* Gray gradient */
+    color: white; /* White text */
+}
+
+/* Button hover effects */
+.btn:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* ===================================
+   15. PRODUCT RIGHT COLUMN
+   =================================== */
+
+/* Right column container */
+.product-right {
+    display: flex; /* Vertical flex layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between cards */
+}
+
+/* Card styling for specifications, contact, and price */
+.specifications-card,
+.contact-card,
+.price-card {
+    background: white; /* White background */
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Comfortable padding */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid #e9ecef; /* Light border */
+}
+
+/* Card headings */
+.specifications-card h3,
+.contact-card h3,
+.price-card h3 {
+    color: #2c3e50; /* Dark blue-gray color */
+    margin-bottom: 15px; /* Space below heading */
+    font-size: 1.2rem; /* Slightly larger font */
+    display: flex; /* Flex for icon alignment */
+    align-items: center; /* Vertical center alignment */
+    gap: 10px; /* Space between icon and text */
+}
+
+/* ===================================
+   16. SPECIFICATIONS SECTION
+   =================================== */
+
+/* Specifications grid container */
+.specs-grid {
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical stacking */
+    gap: 12px; /* Space between rows */
+}
+
+/* Specification row container */
+.spec-row {
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 10px; /* Space between items */
+}
+
+/* Individual specification item */
+.spec-item {
+    background: #f8f9fa; /* Light gray background */
+    padding: 10px; /* Comfortable padding */
+    border-radius: 6px; /* Rounded corners */
+    border-left: 3px solid #f1f549; /* Brand color accent */
+}
+
+/* Specification label */
+.spec-label {
+    display: block; /* Block display */
+    font-weight: 500; /* Medium font weight */
+    color: #495057; /* Dark gray color */
+    font-size: 0.9rem; /* Slightly smaller font */
+    margin-bottom: 3px; /* Small space below label */
+}
+
+/* Specification value */
+.spec-value {
+    font-weight: 600; /* Semi-bold font weight */
+    color: #333; /* Dark color */
+    font-size: 0.95rem; /* Standard font size */
+}
+
+/* ===================================
+   17. CONTACT CARD
+   =================================== */
+
+/* Contact list container */
+.contact-list {
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical stacking */
+    gap: 10px; /* Space between contact items */
+}
+
+/* Individual contact item */
+.contact-item {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space between label and number */
+    align-items: center; /* Vertical center alignment */
+    padding: 10px 15px; /* Comfortable padding */
+    background: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for click-to-call */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Contact item hover effect */
+.contact-item:hover {
+    background-color: #e9ecef; /* Darker gray on hover */
+    transform: translateX(5px); /* Slight slide effect */
+}
+
+/* Contact label styling */
+.contact-label {
+    font-weight: 500; /* Medium font weight */
+    color: #495057; /* Dark gray color */
+}
+
+/* Contact number styling */
+.contact-number {
+    font-family: 'Courier New', monospace; /* Monospace font for numbers */
+    font-weight: 600; /* Semi-bold font weight */
+    color: #333; /* Dark color */
+}
+
+/* ===================================
+   18. PRICE CARD
+   =================================== */
+
+/* Price details container */
+.price-details {
+    display: flex; /* Flex layout */
+    flex-direction: column; /* Vertical stacking */
+    gap: 10px; /* Space between price rows */
+}
+
+/* Price row layout */
+.price-row {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space between label and value */
+    align-items: center; /* Vertical center alignment */
+    padding: 8px 0; /* Vertical padding */
+}
+
+/* Total price row (emphasized) */
+.price-row.total {
+    border-top: 2px solid #e9ecef; /* Top border separation */
+    padding-top: 15px; /* Extra padding above */
+    margin-top: 10px; /* Extra margin above */
+}
+
+/* Price label styling */
+.price-label {
+    font-weight: 500; /* Medium font weight */
+    color: #495057; /* Dark gray color */
+}
+
+/* Price value styling */
+.price-value {
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Dark color */
+    font-size: 1.1rem; /* Slightly larger font */
+}
+
+/* Total price value (emphasized) */
+.price-row.total .price-value {
+    color: #28a745; /* Green color for total */
+    font-size: 1.3rem; /* Larger font for emphasis */
+}
+
+/* Discount information */
+.discount-info {
+    text-align: center; /* Center align text */
+    margin-top: 10px; /* Space above */
+}
+
+/* Discount info text */
+.discount-info small {
+    color: #28a745; /* Green color */
+    font-style: italic; /* Italic text */
+}
+
+/* ===================================
+   19. FEATURES SECTION
+   =================================== */
+
+/* Features section container */
+.features-section {
+    background: white; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Generous padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 40px; /* Space below section */
+}
+
+/* Features section heading */
+.features-section h2 {
+    text-align: center; /* Center align heading */
+    color: #2c3e50; /* Dark blue-gray color */
+    margin-bottom: 30px; /* Space below heading */
+    font-size: 2rem; /* Large font size */
+}
+
+/* Features grid layout */
+.features-grid {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 25px; /* Space between feature cards */
+}
+
+/* Individual feature card */
+.feature-card {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff); /* Light gradient background */
+    padding: 25px; /* Comfortable padding */
+    border-radius: 12px; /* Rounded corners */
+    text-align: center; /* Center align content */
+    border: 2px solid #e9ecef; /* Light border */
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Feature card hover effect */
+.feature-card:hover {
+    transform: translateY(-5px); /* Lift effect */
+    border-color: #f1f549; /* Brand color border */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+
+/* Feature icon styling */
+.feature-icon {
+    font-size: 3rem; /* Large icon size */
+    color: #f1f549; /* Brand color */
+    margin-bottom: 15px; /* Space below icon */
+}
+
+/* Feature card heading */
+.feature-card h4 {
+    color: #2c3e50; /* Dark blue-gray color */
+    margin-bottom: 15px; /* Space below heading */
+    font-size: 1.2rem; /* Slightly larger font */
+}
+
+/* Feature card description */
+.feature-card p {
+    color: #666; /* Gray text color */
+    line-height: 1.6; /* Good line height for readability */
+}
+
+/* ===================================
+   20. FOOTER SECTION
+   =================================== */
+
+/* Main footer container */
+.main-footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient background */
+    color: white; /* White text */
+}
+
+/* Footer top section */
+.footer-top {
+    padding: 40px 0; /* Vertical padding */
+}
+
+/* Footer grid layout */
+.footer-grid {
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Varying column widths */
+    gap: 40px; /* Space between columns */
+}
+
+/* Footer section headings */
+.footer-section h4 {
+    color: #f1f549; /* Brand color */
+    margin-bottom: 20px; /* Space below heading */
+    font-size: 1.2rem; /* Slightly larger font */
+}
+
+/* Footer logo styling */
+.footer-logo img {
+    margin-bottom: 15px; /* Space below logo */
+}
+
+/* Footer section paragraphs */
+.footer-section p {
+    color: #bdc3c7; /* Light gray color */
+    line-height: 1.6; /* Good line height */
+    margin-bottom: 20px; /* Space below paragraph */
+}
+
+/* Footer lists */
+.footer-section ul {
+    list-style: none; /* Remove bullet points */
+}
+
+/* Footer list items */
+.footer-section li {
+    margin-bottom: 8px; /* Space between items */
+}
+
+/* Footer links */
+.footer-section a {
+    color: #bdc3c7; /* Light gray color */
+    text-decoration: none; /* No underlines */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Footer link hover effect */
+.footer-section a:hover {
+    color: #f1f549; /* Brand color on hover */
+}
+
+/* Footer contact info items */
+.contact-info .contact-item {
+    display: flex; /* Horizontal layout */
+    align-items: center; /* Vertical center alignment */
+    gap: 10px; /* Space between icon and text */
+    margin-bottom: 10px; /* Space between items */
+    color: #bdc3c7; /* Light gray color */
+}
+
+/* Footer contact icons */
+.contact-info .contact-item i {
+    color: #f1f549; /* Brand color for icons */
+    width: 20px; /* Fixed width for alignment */
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    border-top: 1px solid #34495e; /* Top border separation */
+    padding: 20px 0; /* Vertical padding */
+}
+
+/* Footer bottom content layout */
+.footer-bottom-content {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space between copyright and links */
+    align-items: center; /* Vertical center alignment */
+}
+
+/* Footer bottom links container */
+.footer-links {
+    display: flex; /* Horizontal layout */
+    gap: 20px; /* Space between links */
+}
+
+/* Footer bottom links */
+.footer-links a {
+    color: #bdc3c7; /* Light gray color */
+    text-decoration: none; /* No underlines */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Footer bottom links hover effect */
+.footer-links a:hover {
+    color: #f1f549; /* Brand color on hover */
+}
+
+/* ===================================
+   21. MODAL COMPONENTS
+   =================================== */
+
+/* Modal overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning */
+    z-index: 2000; /* High z-index to appear above everything */
+    left: 0; /* Full width positioning */
+    top: 0; /* Full height positioning */
+    width: 100%; /* Full viewport width */
+    height: 100%; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    animation: fadeIn 0.3s ease; /* Fade in animation */
+}
+
+/* Modal content container */
+.modal-content {
+    background-color: white; /* White background */
+    margin: 5% auto; /* Center with top margin */
+    border-radius: 15px; /* Rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Maximum width for large screens */
+    max-height: 90vh; /* Maximum height */
+    overflow-y: auto; /* Scroll if content overflows */
+    animation: slideIn 0.3s ease; /* Slide in animation */
+}
+
+/* Modal header */
+.modal-header {
+    display: flex; /* Horizontal layout */
+    justify-content: space-between; /* Space between title and close button */
+    align-items: center; /* Vertical center alignment */
+    padding: 20px 30px; /* Comfortable padding */
+    border-bottom: 1px solid #e9ecef; /* Bottom border separation */
+}
+
+/* Modal header title */
+.modal-header h3 {
+    color: #2c3e50; /* Dark blue-gray color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Modal close button */
+.close {
+    color: #aaa; /* Light gray color */
+    font-size: 28px; /* Large font size */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Close button hover effect */
+.close:hover {
+    color: #333; /* Darker color on hover */
+}
+
+/* Modal body */
+.modal-body {
+    padding: 30px; /* Comfortable padding */
+}
+
+/* Modal footer */
+.modal-footer {
+    display: flex; /* Horizontal layout */
+    justify-content: flex-end; /* Align buttons to right */
+    gap: 15px; /* Space between buttons */
+    padding: 20px 30px; /* Comfortable padding */
+    border-top: 1px solid #e9ecef; /* Top border separation */
+}
+
+/* ===================================
+   22. FORM COMPONENTS
+   =================================== */
+
+/* Form group container */
+.form-group {
+    margin-bottom: 20px; /* Space between form fields */
+}
+
+/* Form labels */
+.form-group label {
+    display: block; /* Block display for full width */
+    margin-bottom: 5px; /* Small space below label */
+    font-weight: 500; /* Medium font weight */
+    color: #333; /* Dark color */
+}
+
+/* Form inputs and textareas */
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Comfortable padding */
+    border: 2px solid #dee2e6; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Standard font size */
+    transition: border-color 0.3s ease; /* Smooth border color transition */
+}
+
+/* Form input focus state */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none; /* Remove default outline */
+    border-color: #f1f549; /* Brand color border on focus */
+}
+
+/* Textarea specific styling */
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+/* ===================================
+   23. ANIMATIONS
+   =================================== */
+
+/* Fade in animation for modals */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Start transparent */
+    to { opacity: 1; } /* End opaque */
+}
+
+/* Slide in animation for modal content */
+@keyframes slideIn {
+    from { 
+        opacity: 0; /* Start transparent */
+        transform: translateY(-50px); /* Start above final position */
+    }
+    to { 
+        opacity: 1; /* End opaque */
+        transform: translateY(0); /* End at final position */
+    }
+}
+
+/* ===================================
+   24. RESPONSIVE DESIGN - LARGE TABLETS
+   =================================== */
+
+/* Styles for screens up to 1024px wide (tablets) */
+@media (max-width: 1024px) {
+    /* Change product layout to single column */
+    .product-layout {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 30px; /* Reduced gap */
+    }
+    
+    /* Move right column to top on tablets */
+    .product-right {
+        order: -1; /* Display before left column */
+    }
+    
+    /* Adjust footer layout for tablets */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Two column layout */
+        gap: 30px; /* Reduced gap */
+    }
+}
+
+/* ===================================
+   25. RESPONSIVE DESIGN - TABLETS
+   =================================== */
+
+/* Styles for screens up to 768px wide (small tablets) */
+@media (max-width: 768px) {
+    /* Stack top bar content vertically */
+    .top-bar .container {
+        flex-direction: column; /* Vertical stacking */
+        gap: 10px; /* Small gap between sections */
+    }
+    
+    /* Reduce gap in top bar sections */
+    .top-bar-left,
+    .top-bar-right {
+        gap: 15px; /* Reduced gap */
+    }
+    
+    /* Hide main navigation menu on mobile */
+    .nav-menu {
+        display: none; /* Hidden on mobile (would need JS to show) */
+    }
+    
+    /* Show mobile menu toggle */
+    .mobile-menu-toggle {
+        display: flex; /* Show hamburger menu */
+    }
+    
+    /* Reduce gap in navigation actions */
+    .nav-actions {
+        gap: 10px; /* Reduced gap */
+    }
+    
+    /* Smaller product header on mobile */
+    .product-header h1 {
+        font-size: 1.5rem; /* Smaller font size */
+        padding: 15px 30px; /* Reduced padding */
+    }
+    
+    /* Reduce product section padding */
+    .product-section {
+        padding: 20px; /* Reduced padding */
+    }
+    
+    /* Stack action buttons vertically */
+    .action-buttons {
+        flex-direction: column; /* Vertical stacking */
+    }
+    
+    /* Single column specification rows */
+    .spec-row {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    /* Single column features grid */
+    .features-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    
+    /* Single column footer */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 30px; /* Consistent gap */
+    }
+    
+    /* Stack footer bottom content */
+    .footer-bottom-content {
+        flex-direction: column; /* Vertical stacking */
+        gap: 15px; /* Space between items */
+        text-align: center; /* Center align text */
+    }
+}
+
+/* ===================================
+   26. RESPONSIVE DESIGN - MOBILE
+   =================================== */
+
+/* Styles for screens up to 576px wide (mobile phones) */
+@media (max-width: 576px) {
+    /* Reduce container padding on mobile */
+    .container {
+        padding: 0 15px; /* Reduced side padding */
+    }
+    
+    /* Further reduce product header size */
+    .product-header h1 {
+        font-size: 1.3rem; /* Smaller font */
+        padding: 12px 20px; /* Reduced padding */
+    }
+    
+    /* Reduce main product image height */
+    .main-product-image {
+        height: 250px; /* Smaller height for mobile */
+    }
+    
+    /* Center color options on mobile */
+    .color-options {
+        justify-content: center; /* Center align color buttons */
+    }
+    
+    /* Center quantity controls on mobile */
+    .quantity-controls {
+        justify-content: center; /* Center align quantity controls */
+    }
+    
+    /* Adjust modal for mobile */
+    .modal-content {
+        margin: 10% auto; /* Reduced top margin */
+        width: 95%; /* Nearly full width */
+    }
+    
+    /* Reduce modal padding on mobile */
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 20px; /* Reduced padding */
+    }
+}
+
+/* ===================================
+   27. PRINT STYLES
+   =================================== */
+
+/* Styles specifically for printing */
+@media print {
+    /* Hide interactive elements when printing */
+    .top-bar,
+    .main-nav,
+    .action-buttons,
+    .modal {
+        display: none !important; /* Force hide with !important */
+    }
+    
+    /* Ensure white background for printing */
+    body {
+        background: white !important; /* White background */
+    }
+    
+    /* Remove shadows and enhance borders for print */
+    .product-section,
+    .features-section {
+        box-shadow: none !important; /* Remove shadows */
+        border: 1px solid #ddd !important; /* Add simple border */
+    }
+}
+
+/* ===================================
+   28. CUSTOM PRODUCT HEADER STYLING
+   =================================== */
+
+/* Enhanced product header with background */
+.product-header {
+    background: linear-gradient(135deg, #f4e942, #c4d436); /* Yellow to green gradient */
+    padding: 25px; /* Generous padding */
+    text-align: center; /* Center align content */
+    border-radius: 15px 15px 0 0; /* Rounded top corners only */
+    margin-bottom: 0; /* No margin below (connects to content) */
+}
+
+/* Product header title override */
+.product-header h1 {
+    font-size: 28px; /* Specific font size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark text for contrast */
+    margin: 0; /* No margins */
+}
+
+/* ===================================
+   END OF STYLESHEET
+   =================================== */
