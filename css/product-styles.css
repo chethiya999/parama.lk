@@ -55,23 +55,152 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Header styles */
-.header {
-    background: linear-gradient(135deg, #f4e942, #c4d436);
+/* Product Page Container - Wide Layout */
+.product-page-container {
     padding: 20px;
+    background-color: #f5f5f5;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-header {
+    background: linear-gradient(135deg, #f4e942, #c4d436);
+    padding: 25px;
     text-align: center;
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 0;
+}
+
+.product-header h1 {
     font-size: 28px;
     font-weight: bold;
     color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    margin: 0;
 }
 
 .header i {
     font-size: 32px;
     color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .product-page-container {
+        max-width: 95%;
+    }
+    
+    .main-content {
+        padding: 30px;
+        gap: 30px;
+    }
+    
+    .features-container,
+    .related-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-page-container {
+        padding: 10px;
+    }
+    
+    .breadcrumb-container {
+        padding: 0 10px;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+    
+    .product-header h1 {
+        font-size: 24px;
+    }
+    
+    .size-buttons,
+    .length-buttons {
+        justify-content: center;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .quantity-controls {
+        justify-content: center;
+    }
+    
+    .specs-table {
+        font-size: 13px;
+    }
+    
+    .specs-table th,
+    .specs-table td {
+        padding: 8px 6px;
+    }
+    
+    .contact-actions {
+        flex-direction: column;
+    }
+    
+    .features-grid,
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .features-container,
+    .related-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-header {
+        padding: 15px;
+    }
+    
+    .product-header h1 {
+        font-size: 20px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .size-btn,
+    .length-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        min-width: 70px;
+    }
+    
+    .specs-table {
+        font-size: 11px;
+    }
+    
+    .specs-table th,
+    .specs-table td {
+        padding: 6px 4px;
+    }
+    
+    .breadcrumb {
+        font-size: 12px;
+    }
+    
+    .breadcrumb-separator {
+        margin: 0 5px;
+    }
+    
+    .contact-section {
+        padding: 20px;
+    }
+    
+    .features-container,
+    .related-container {
+        padding: 15px;
+    }
 }
 
 /* Content layout */
@@ -404,51 +533,59 @@
     font-size: 15px;
 }
 
-/* Contact section */
+/* Contact Section */
 .contact-section {
     background-color: #2c2c2c;
     color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
-    border-left: 4px solid #ffc107;
 }
 
-.contact-title {
-    font-size: 22px;
+.contact-section h3 {
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px;
     text-align: center;
-    color: white;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
 }
 
-.contact-info {
+.contact-details {
     margin-bottom: 20px;
 }
 
-.contact-info div {
+.contact-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.contact-info div:last-child {
+.contact-item:last-child {
     border-bottom: none;
 }
 
 .contact-label {
     font-weight: bold;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
 }
 
-.contact-value {
-    color: #ccc;
+.contact-number {
+    color: #f4e942;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-number:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Phone number styling */
