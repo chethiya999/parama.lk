@@ -357,7 +357,17 @@ function handleContactForm(formData) {
     //     body: JSON.stringify(formData)
     // });
 }
-
+    // Parallax effect for hero section
+    const heroSection = document.querySelector('.hero-section');
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        if (heroSection) {
+            heroSection.style.transform = `translateY(${rate}px)`;
+        }
+    });
+    
 // Function to get current page section
 function getCurrentSection() {
     const sections = document.querySelectorAll('section, .hero, .stats-section');
