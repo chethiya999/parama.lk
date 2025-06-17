@@ -56,13 +56,13 @@
             <a href="contact.html">Contact Us</a>
         </div>
 
-        <a href="https://wa.me/94718393764?text=Hello%2C%20I%27d%20like%20to%20get%20a%20quote" class="quote-btn animate__animated animate__fadeIn">Get a Quote</a>
+        <a href="https://wa.me/94718393764?text=Hello%2C%20I%27d%20like%20to%20get%20a%20quote" class="quote-btn">Get a Quote</a>
     </div>
     
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
-            <h1 class="hero-title animate__animated animate__fadeInUp">Welcome to Parama Industries</h1>
+            <h1 class="hero-title animate__animated animate__fadeInUp">'20 Years of Water Revolution'</h1>
             <h2 class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Innovating for a Greener Tomorrow!</h2>
             <p class="hero-text animate__animated animate__fadeInUp animate__delay-2s">
                 At Parama Industries, we are dedicated to building a sustainable future through
@@ -70,22 +70,33 @@
                 Gardening Services. Our commitment to quality, sustainability, and community
                 development drives everything we do.
             </p>
-            <a href="#about" class="about-btn animate__animated animate__fadeInUp animate__delay-3s">About Company</a>
+            <a href="about.html" class="about-btn animate__animated animate__fadeInUp animate__delay-3s">About Company</a>
         </div>
         <div class="hero-image-container animate__animated animate__fadeInRight animate__delay-1s">
-            <img src="images/bg/cover-page1.png" alt="Construction worker with safety helmet" class="hero-image" 
+            <img src="images/bg/cover-page2.jpg" alt="Construction worker with safety helmet" class="hero-image" 
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
             <div class="placeholder-image" style="display:none; height:300px;">Hero Image</div>
         </div>
     </div>
     
-    <!-- Stats Section -->
-    <div class="stats-section">
-        <div class="stats-image-container">
-            <img src="images/stats-image.jpg" alt="Construction team working" class="stats-image"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="placeholder-image" style="display:none; height:200px;">Stats Background Image</div>
-        </div>
+<!-- Stats Section with Auto-playing Video -->
+<div class="stats-section">
+    <div class="stats-image-container">
+        <video class="stats-video" 
+               autoplay 
+               muted 
+               loop 
+               playsinline
+               poster="images/stats-image.jpg"
+               onloadstart="this.nextElementSibling.style.display='block'"
+               oncanplay="this.nextElementSibling.style.display='none'"
+               onerror="this.style.display='none'; this.nextElementSibling.nextElementSibling.style.display='flex';">
+            <source src="images/status-small.mp4" type="video/mp4">
+        </video>
+        <div class="video-loading"></div>
+        <div class="placeholder-image" style="display:none; height:200px;">Video not available</div>
+    </div>
+</div>
         
         <div class="stats-counters">
             <div class="stat-item" data-count="2000" data-animation="animate__fadeInUp">

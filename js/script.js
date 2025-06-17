@@ -367,7 +367,6 @@ function handleContactForm(formData) {
             heroSection.style.transform = `translateY(${rate}px)`;
         }
     });
-    
 // Function to get current page section
 function getCurrentSection() {
     const sections = document.querySelectorAll('section, .hero, .stats-section');

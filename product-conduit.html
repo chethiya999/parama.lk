@@ -6,7 +6,7 @@
     <title>Parama Electronic Conduit - Parama Solutions</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/conduit-styles.css">
-    <link rel="stylesheet" href="css/product-styles.css">
+    <link rel="stylesheet" href="css/product-styles-condiute.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -104,41 +104,75 @@
                         <li><i class="fas fa-check"></i> Easy installation and maintenance</li>
                         <li><i class="fas fa-check"></i> Eco-friendly manufacturing</li>
                         <li><i class="fas fa-check"></i> High pressure tolerance</li>
+                        <li><i class="fas fa-check"></i> Flame retardant properties</li>
+                        <li><i class="fas fa-check"></i> Cable pulling friendly design</li>
                     </ul>
                 </div>
                 
-                <!-- Size Selection -->
-                <div class="size-selection">
-                    <h3><i class="fas fa-ruler"></i> Select Pipe Diameter</h3>
-                    <div class="size-buttons">
-                        <button class="size-btn active" data-size="1/2">1/2"</button>
-                        <button class="size-btn" data-size="3/4">3/4"</button>
-                        <button class="size-btn" data-size="1">1"</button>
-                        <button class="size-btn" data-size="1 1/4">1 1/4"</button>
-                        <button class="size-btn" data-size="1 1/2">1 1/2"</button>
-                        <button class="size-btn" data-size="2">2"</button>
+                <!-- Size Selection - Updated to match reusable system -->
+                <div class="size-section">
+                    <div class="size-label">
+                        <i class="fas fa-ruler"></i> Select Conduit Diameter
+                    </div>
+                    <div class="size-options">
+                        <button class="size-button active" data-size="1/2">1/2"</button>
+                        <button class="size-button" data-size="3/4">3/4"</button>
+                        <button class="size-button" data-size="1">1"</button>
+                        <button class="size-button" data-size="1 1/4">1 1/4"</button>
+                        <button class="size-button" data-size="1 1/2">1 1/2"</button>
+                        <button class="size-button" data-size="2">2"</button>
+                    </div>
+                </div>
+
+                <!-- Color Selection - NEW for conduits -->
+                <div class="color-section">
+                    <div class="color-label">
+                        <i class="fas fa-palette"></i> Select Color
+                    </div>
+                    <div class="color-options">
+                        <button class="color-button active" data-color="Orange">Orange</button>
+                        <button class="color-button" data-color="Black">Black</button>
+                        <button class="color-button" data-color="Gray">Gray</button>
+                        <button class="color-button" data-color="White">White</button>
+                    </div>
+                </div>
+
+                <!-- Length Selection - NEW for conduits -->
+                <div class="length-section">
+                    <div class="length-label">
+                        <i class="fas fa-arrows-alt-h"></i> Select Length
+                    </div>
+                    <div class="length-options">
+                        <button class="length-button active" data-length="3m">3 meters</button>
+                        <button class="length-button" data-length="6m">6 meters</button>
+                        <button class="length-button" data-length="custom">Custom Length</button>
                     </div>
                 </div>
                 
-                <!-- Quantity Selection -->
+                <!-- Quantity Selection - Updated to match reusable system -->
                 <div class="quantity-section">
-                    <h3><i class="fas fa-sort-numeric-up"></i> Quantity</h3>
-                    <div class="quantity-controls">
+                    <div class="quantity-label">
+                        <i class="fas fa-sort-numeric-up"></i> Quantity
+                    </div>
+                    <div class="quantity-selector">
                         <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
-                        <input type="number" class="quantity-input" value="1" min="1" max="100" id="quantity">
+                        <input type="number" class="quantity-input" value="1" min="1" max="50" id="quantity">
                         <button class="quantity-btn" onclick="increaseQuantity()">+</button>
                     </div>
                 </div>
                 
-                <!-- Action Buttons -->
+                <!-- Stock Status Display -->
+                <div id="stock-status" class="stock-status in-stock">
+                    <i class="fas fa-check-circle text-success"></i> In Stock
+                </div>
+                
+                <!-- Action Buttons - Updated to match reusable system -->
                 <div class="action-buttons">
-                    <button class="add-to-cart-btn" onclick="addToCart()">
-                        <i class="fas fa-shopping-cart"></i>
-                        ADD TO CART
+                    <button class="add-to-cart" onclick="addToCart()">
+                        <i class="fas fa-shopping-cart"></i> ADD TO CART
                     </button>
-                    <button class="request-quote-btn" onclick="requestQuote()">
-                        <i class="fas fa-file-alt"></i>
-                        REQUEST QUOTE
+                    <button class="quote-request" onclick="requestQuote()">
+                        <i class="fas fa-file-alt"></i> REQUEST QUOTE
                     </button>
                 </div>
             </div>
@@ -165,38 +199,38 @@
                             <tr>
                                 <td>1/2"</td>
                                 <td>20</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                             <tr>
                                 <td>3/4"</td>
                                 <td>25</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                             <tr>
                                 <td>1"</td>
                                 <td>32</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                             <tr>
                                 <td>1 1/4"</td>
                                 <td>40</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                             <tr>
                                 <td>1 1/2"</td>
                                 <td>50</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                             <tr>
                                 <td>2"</td>
                                 <td>63</td>
-                                <td>13'-0"</td>
-                                <td>4000</td>
+                                <td>10'-0"</td>
+                                <td>3000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -205,23 +239,27 @@
                 <!-- Additional Specifications -->
                 <div class="additional-specs">
                     <h4>Additional Specifications:</h4>
-                    <div class="spec-row">
+                    <div class="spec-item">
                         <span class="spec-label">Material:</span>
                         <span class="spec-value">High-grade PVC</span>
                     </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Pressure Rating:</span>
-                        <span class="spec-value">Up to 200 PSI</span>
+                    <div class="spec-item">
+                        <span class="spec-label">Electrical Rating:</span>
+                        <span class="spec-value">Up to 600V</span>
                     </div>
-                    <div class="spec-row">
+                    <div class="spec-item">
                         <span class="spec-label">Temperature Range:</span>
                         <span class="spec-value">-10°C to +60°C</span>
                     </div>
-                    <div class="spec-row">
-                        <span class="spec-label">Color:</span>
-                        <span class="spec-value">White/Gray</span>
+                    <div class="spec-item">
+                        <span class="spec-label">Fire Rating:</span>
+                        <span class="spec-value">Self-extinguishing</span>
                     </div>
-                    <div class="spec-row">
+                    <div class="spec-item">
+                        <span class="spec-label">Standard:</span>
+                        <span class="spec-value">IEC 61386 & BS EN 61386</span>
+                    </div>
+                    <div class="spec-item">
                         <span class="spec-label">Warranty:</span>
                         <span class="spec-value">5 Years</span>
                     </div>
@@ -265,27 +303,27 @@
                 <div class="related-grid">
                     <div class="related-item">
                         <div class="related-image">
-                            <i class="fas fa-seedling"></i>
+                            <i class="fas fa-plug"></i>
                         </div>
-                        <h4>Garden Irrigation Kits</h4>
-                        <p>Complete irrigation solutions for gardens</p>
-                        <a href="product-garden.html" class="related-link">View Details</a>
+                        <h4>Electrical Fittings</h4>
+                        <p>Complete range of conduit fittings and accessories</p>
+                        <a href="product-fittings.html" class="related-link">View Details</a>
                     </div>
                     <div class="related-item">
                         <div class="related-image">
-                            <i class="fas fa-recycle"></i>
+                            <i class="fas fa-bolt"></i>
                         </div>
-                        <h4>Recycled PVC Products</h4>
-                        <p>Eco-friendly recycled pipe solutions</p>
-                        <a href="product-recycling.html" class="related-link">View Details</a>
+                        <h4>Cable Management</h4>
+                        <p>Comprehensive cable protection solutions</p>
+                        <a href="product-cable.html" class="related-link">View Details</a>
                     </div>
                     <div class="related-item">
                         <div class="related-image">
                             <i class="fas fa-tools"></i>
                         </div>
-                        <h4>Installation Accessories</h4>
-                        <p>Fittings and tools for pipe installation</p>
-                        <a href="#accessories" class="related-link">View Details</a>
+                        <h4>Installation Tools</h4>
+                        <p>Professional tools for conduit installation</p>
+                        <a href="#tools" class="related-link">View Details</a>
                     </div>
                 </div>
             </div>
@@ -367,189 +405,154 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Files -->
     <script src="js/script.js"></script>
+    <script src="js/product-manager.js"></script>
+    
+    <!-- Product-specific Configuration -->
     <script>
-        // Product-specific JavaScript functions
-        
-        // Quantity management
-        function increaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue < 100) {
-                quantityInput.value = currentValue + 1;
-            }
-        }
-        
-        function decreaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-            }
-        }
-        
-        // Enhanced add to cart function
-        function addToCart() {
-            const activeButton = document.querySelector('.size-btn.active');
-            const currentSize = activeButton ? activeButton.dataset.size : '1/2';
-            const quantity = document.getElementById('quantity').value;
-            
-            const button = document.querySelector('.add-to-cart-btn');
-            const originalText = button.innerHTML;
-            
-            // Add loading state
-            button.classList.add('loading');
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
-            
-            // Simulate API call
-            setTimeout(() => {
-                button.classList.remove('loading');
-                button.classList.add('success');
-                button.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
-                
-                // Show notification
-                if (window.ParamaSolutions && window.ParamaSolutions.showNotification) {
-                    window.ParamaSolutions.showNotification(
-                        `Added ${quantity}x Electronic Conduit (${currentSize}") to cart!`, 
-                        'success'
-                    );
-                } else {
-                    alert(`Added ${quantity}x Parama Electronic Conduit (${currentSize}") to cart!`);
+        // Initialize Electronic Conduit product manager with advanced features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Custom Electronic Conduit Product Manager with inventory tracking
+            class ConduitProductManager extends ProductManager {
+                constructor(config) {
+                    super(config);
+                    
+                    // Sample inventory data - replace with real data
+                    this.inventory = {
+                        '1/2_Orange_3m': 25,
+                        '1/2_Orange_6m': 18,
+                        '1/2_Black_3m': 30,
+                        '1/2_Black_6m': 22,
+                        '3/4_Orange_3m': 20,
+                        '3/4_Orange_6m': 15,
+                        '3/4_Black_3m': 28,
+                        '3/4_Black_6m': 12,
+                        '1_Orange_3m': 15,
+                        '1_Orange_6m': 10,
+                        '1_Black_3m': 20,
+                        '1_Black_6m': 8,
+                        '1 1/4_Orange_3m': 12,
+                        '1 1/4_Orange_6m': 7,
+                        '1 1/4_Black_3m': 15,
+                        '1 1/4_Black_6m': 5,
+                        '1 1/2_Orange_3m': 10,
+                        '1 1/2_Orange_6m': 6,
+                        '1 1/2_Black_3m': 12,
+                        '1 1/2_Black_6m': 4,
+                        '2_Orange_3m': 8,
+                        '2_Orange_6m': 3,
+                        '2_Black_3m': 10,
+                        '2_Black_6m': 2
+                    };
+                    
+                    this.updateStockDisplay();
                 }
                 
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    button.classList.remove('success');
-                    button.innerHTML = originalText;
-                }, 3000);
-            }, 1500);
-        }
-        
-        // Request quote function
-        function requestQuote() {
-            const activeButton = document.querySelector('.size-btn.active');
-            const currentSize = activeButton ? activeButton.dataset.size : '1/2';
-            const quantity = document.getElementById('quantity').value;
-            
-            const message = `I would like to request a quote for ${quantity}x Parama Electronic Conduit (${currentSize}"). Please provide pricing and availability.`;
-            const whatsappUrl = `https://wa.me/94777898445?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-        
-        // Call number function
-        function callNumber(number) {
-            window.location.href = `tel:${number}`;
-        }
-        
-        // Size selection functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.size-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.size-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
+                getCurrentSelections() {
+                    const selections = super.getCurrentSelections();
                     
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
-</body>
-</html></div>
- 
-
-    <!-- JavaScript -->
-    <script src="js/conduit-script.js"></script>
-    <script>
-        // Product-specific JavaScript functions
-        
-        // Quantity management
-        function increaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue < 100) {
-                quantityInput.value = currentValue + 1;
-            }
-        }
-        
-        function decreaseQuantity() {
-            const quantityInput = document.getElementById('quantity');
-            let currentValue = parseInt(quantityInput.value);
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-            }
-        }
-        
-        // Enhanced add to cart function
-        function addToCart() {
-            const activeButton = document.querySelector('.size-btn.active');
-            const currentSize = activeButton ? activeButton.dataset.size : '1/2';
-            const quantity = document.getElementById('quantity').value;
-            
-            const button = document.querySelector('.add-to-cart-btn');
-            const originalText = button.innerHTML;
-            
-            // Add loading state
-            button.classList.add('loading');
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
-            
-            // Simulate API call
-            setTimeout(() => {
-                button.classList.remove('loading');
-                button.classList.add('success');
-                button.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
-                
-                // Show notification
-                if (window.ParamaSolutions && window.ParamaSolutions.showNotification) {
-                    window.ParamaSolutions.showNotification(
-                        `Added ${quantity}x Electronic Conduit (${currentSize}") to cart!`, 
-                        'success'
-                    );
-                } else {
-                    alert(`Added ${quantity}x Parama Electronic Conduit (${currentSize}") to cart!`);
+                    // Check inventory for conduits
+                    if (selections.size && selections.color && selections.length && selections.length !== 'custom') {
+                        const inventoryKey = `${selections.size}_${selections.color}_${selections.length}`;
+                        const availableStock = this.inventory[inventoryKey] || 0;
+                        
+                        selections.availableStock = availableStock;
+                        selections.inStock = availableStock >= selections.quantity;
+                    } else {
+                        // For custom length, assume available
+                        selections.availableStock = 999;
+                        selections.inStock = true;
+                    }
+                    
+                    return selections;
                 }
                 
-                // Reset button after 3 seconds
-                setTimeout(() => {
-                    button.classList.remove('success');
-                    button.innerHTML = originalText;
-                }, 3000);
-            }, 1500);
-        }
-        
-        // Request quote function
-        function requestQuote() {
-            const activeButton = document.querySelector('.size-btn.active');
-            const currentSize = activeButton ? activeButton.dataset.size : '1/2';
-            const quantity = document.getElementById('quantity').value;
-            
-            const message = `I would like to request a quote for ${quantity}x Parama Electronic Conduit (${currentSize}"). Please provide pricing and availability.`;
-            const whatsappUrl = `https://wa.me/94777898445?text=${encodeURIComponent(message)}`;
-            
-            window.open(whatsappUrl, '_blank');
-        }
-        
-        // Call number function
-        function callNumber(number) {
-            window.location.href = `tel:${number}`;
-        }
-        
-        // Size selection functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.size-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.size-btn').forEach(btn => {
-                        btn.classList.remove('active');
+                addToCart() {
+                    const selections = this.getCurrentSelections();
+                    
+                    // Special validation for conduits
+                    if (selections.length === 'custom') {
+                        // For custom length, redirect to quote instead
+                        this.showNotification('Custom lengths require a quote. Redirecting...', 'info');
+                        setTimeout(() => this.requestQuote(), 1500);
+                        return;
+                    }
+                    
+                    if (!selections.inStock) {
+                        this.showNotification(`Only ${selections.availableStock} units available in this configuration`, 'error');
+                        return;
+                    }
+                    
+                    // Large quantity warning for conduits
+                    if (selections.quantity > 20) {
+                        if (!confirm('Large quantity order detected. This may require special arrangements. Continue?')) {
+                            return;
+                        }
+                    }
+                    
+                    super.addToCart();
+                    
+                    // Update inventory after adding to cart
+                    if (selections.size && selections.color && selections.length !== 'custom') {
+                        const inventoryKey = `${selections.size}_${selections.color}_${selections.length}`;
+                        if (this.inventory[inventoryKey]) {
+                            this.inventory[inventoryKey] -= selections.quantity;
+                            this.updateStockDisplay();
+                        }
+                    }
+                }
+                
+                updateStockDisplay() {
+                    const selections = this.getCurrentSelections();
+                    const stockElement = document.getElementById('stock-status');
+                    
+                    if (stockElement) {
+                        if (selections.length === 'custom') {
+                            stockElement.innerHTML = `<i class="fas fa-info-circle text-info"></i> Quote Required for Custom Length`;
+                            stockElement.className = 'stock-status custom-stock';
+                        } else if (selections.availableStock > 10) {
+                            stockElement.innerHTML = `<i class="fas fa-check-circle text-success"></i> In Stock (${selections.availableStock} available)`;
+                            stockElement.className = 'stock-status in-stock';
+                        } else if (selections.availableStock > 0) {
+                            stockElement.innerHTML = `<i class="fas fa-exclamation-triangle text-warning"></i> Low Stock (${selections.availableStock} left)`;
+                            stockElement.className = 'stock-status low-stock';
+                        } else {
+                            stockElement.innerHTML = `<i class="fas fa-times-circle text-danger"></i> Out of Stock`;
+                            stockElement.className = 'stock-status out-of-stock';
+                        }
+                    }
+                }
+                
+                setupEventListeners() {
+                    super.setupEventListeners();
+                    
+                    // Update stock display when selections change
+                    document.querySelectorAll('.size-button, .color-button, .length-button').forEach(button => {
+                        button.addEventListener('click', () => {
+                            setTimeout(() => this.updateStockDisplay(), 100);
+                        });
                     });
                     
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                });
+                    // Update stock display when quantity changes
+                    const quantityInput = document.getElementById('quantity');
+                    if (quantityInput) {
+                        quantityInput.addEventListener('input', () => {
+                            this.updateStockDisplay();
+                        });
+                    }
+                }
+            }
+            
+            // Initialize the conduit product manager
+            productManager = new ConduitProductManager({
+                productName: 'Electronic Conduit',
+                hasSize: true,
+                hasColor: true,
+                hasLength: true,
+                whatsappNumber: '94777898445', // Using hotline number for conduits
+                maxQuantity: 50, // Lower max for conduits
+                minQuantity: 1
             });
         });
     </script>

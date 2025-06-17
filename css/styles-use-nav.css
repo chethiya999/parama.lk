@@ -295,6 +295,7 @@ body {
 /* Stats section */
 
 
+
 /* Footer */
 .footer {
     background-color: #2c2c2c;
@@ -360,38 +361,49 @@ body {
 }
 
 .footer-subscribe form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 350px;       /* limit form width */
+  margin: 0 auto;         /* center if parent is wider */
+  box-sizing: border-box;
+}
+
+.footer-subscribe input,
+.subscribe-btn {
+  width: 100%;            /* fill the form’s width */
+  box-sizing: border-box; /* include padding/border in that width */
 }
 
 .footer-subscribe input {
-    padding: 12px;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
-    color: white;
+  padding: 12px 16px;     /* you can tweak padding */
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: white;
 }
 
 .footer-subscribe input::placeholder {
-    color: #ccc;
+  color: #ccc;
 }
 
 .subscribe-btn {
-    background-color: #ffc107;
-    color: #333;
-    border: none;
-    padding: 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  padding: 14px;          /* a bit taller button */
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .subscribe-btn:hover {
-    background-color: #e6a800;
-    transform: translateY(-2px);
+  background-color: #e6a800;
+  transform: translateY(-2px);
 }
+
 
 .footer-blog .blog-post {
     margin-bottom: 15px;

@@ -56,8 +56,8 @@
 }
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #343529, #18131d);
-    color: white;
+    background: linear-gradient(135deg, #29352f, #18131d);
+    color: #ffc107;
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -106,7 +106,15 @@
     margin: 0 auto;
 }
 
-
+/* Main Content Container */
+.content {
+    display: flex;
+    gap: 30px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 .header i {
     font-size: 32px;
     color: #333;
@@ -709,6 +717,7 @@
     }
 }
 
+
 @media (max-width: 768px) {
     .product-page-container {
         padding: 10px;
@@ -819,7 +828,9 @@
     .breadcrumb-separator {
         margin: 0 5px;
     }
-    
+        .content {
+        padding: 15px;
+    }
 }
 /* Subsidiary Companies Section */
 @media (max-width: 768px) {
