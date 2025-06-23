@@ -439,9 +439,9 @@ body {
 }
 
 .subsidiary-logo {
-    width: 120px;
+    width: 200px;
     height: 120px;
-    background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+    background: linear-gradient(135deg, #fffcf1, #fdf8e4);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -461,6 +461,28 @@ body {
     border-radius: 10px;
 }
 
+.subsidiary-logo-new {
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, #fffcf1, #fdf8e4);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2.5rem;
+    color: #1f1f1f;
+    border: 3px solid #f7dc6f;
+    position: relative;
+    overflow: hidden;
+}
+
+.subsidiary-logo img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 10px;
+}
 .subsidiary-card h4 {
     font-size: 1.4rem;
     color: #1f1f1f;
@@ -618,6 +640,11 @@ body {
     }
     
     .subsidiary-logo {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+        .subsidiary-logo-new {
         width: 100px;
         height: 100px;
         font-size: 2rem;
