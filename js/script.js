@@ -382,6 +382,237 @@ function getCurrentSection() {
     return current;
 }
 
+
+// Product logo functionality and animations
+document.addEventListener('DOMContentLoaded', function() {
+    initializeProdLogoSection();
+});
+
+function initializeProdLogoSection() {
+    const prodLogoSection = document.querySelector('.prod-logo-section');
+    const logoImage = prodLogoSection?.querySelector('.logo-image');
+    const logoContainer = prodLogoSection?.querySelector('.logo-container');
+    const tagline = prodLogoSection?.querySelector('.company-tagline');
+    
+    if (!prodLogoSection) {
+        console.warn('Product logo section not found');
+        return;
+    }
+
+    // Add entrance animation
+    addEntranceAnimation(prodLogoSection);
+    
+    // Add hover effects
+    addHoverEffects(logoImage, logoContainer);
+    
+    // Add click functionality
+    addClickFunctionality(prodLogoSection);
+    
+    // Add scroll animation
+    addScrollAnimation(prodLogoSection);
+    
+    // Auto-adjust placeholder size
+    autoAdjustPlaceholderSize();
+}
+
+// Entrance animation
+function addEntranceAnimation(prodLogoSection) {
+    // Set initial state
+    prodLogoSection.classList.add('prod-logo-fade-in');
+    
+    // Trigger animation after delay
+    setTimeout(() => {
+        prodLogoSection.classList.add('visible');
+    }, 800);
+}
+
+// Hover effects with shine border
+function addHoverEffects(logoImage, logoContainer) {
+    if (logoImage) {
+        logoImage.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.filter = 'brightness(1.1) saturate(1.2)';
+            // Pause shine animation on hover
+            this.style.animationPlayState = 'paused';
+        });
+        
+        logoImage.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1.02)';
+            this.style.filter = 'brightness(1.05)';
+            // Resume shine animation
+            this.style.animationPlayState = 'running';
+        });
+        
+        // Add loading state handler
+        logoImage.addEventListener('load', function() {
+            this.style.opacity = '1';
+            this.classList.add('animate__fadeIn');
+            // Start shine animation after load
+            setTimeout(() => {
+                this.classList.add('shine-border');
+            }, 1000);
+        });
+        
+        logoImage.addEventListener('error', function() {
+            console.log('Logo image failed to load, showing placeholder with shine border');
+        });
+    }
+    
+    if (logoContainer) {
+        logoContainer.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.01)';
+        });
+        
+        logoContainer.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
+}
+
+// Click functionality
+function addClickFunctionality(prodLogoSection) {
+    const logoImage = prodLogoSection.querySelector('.logo-image');
+    const logoContainer = prodLogoSection.querySelector('.logo-container');
+    
+    function handleClick() {
+        // Add click animation
+        prodLogoSection.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+            prodLogoSection.style.transform = 'scale(1)';
+        }, 150);
+        
+        // Optional: Add your click action here
+        // For example: window.open('https://paramasolutions.com', '_blank');
+        console.log('Product logo clicked - add your custom action here');
+    }
+    
+    if (logoImage) {
+        logoImage.addEventListener('click', handleClick);
+        logoImage.style.cursor = 'pointer';
+    }
+    
+    if (logoContainer) {
+        logoContainer.addEventListener('click', handleClick);
+        logoContainer.style.cursor = 'pointer';
+    }
+}
+
+// Scroll animation
+function addScrollAnimation(prodLogoSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'pulse 2s ease-in-out infinite';
+            } else {
+                entry.target.style.animation = 'none';
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    observer.observe(prodLogoSection);
+}
+
+// Auto-adjust placeholder size and enable shine border
+function autoAdjustPlaceholderSize() {
+    const logoImage = document.querySelector('.prod-logo-section .logo-image');
+    const placeholder = document.querySelector('.prod-logo-section .placeholder-image');
+    
+    if (logoImage && placeholder) {
+        // Wait for logo to load, then match placeholder size and enable shine
+        logoImage.addEventListener('load', function() {
+            const logoRect = logoImage.getBoundingClientRect();
+            placeholder.style.minHeight = logoRect.height + 'px';
+            placeholder.style.width = '100%';
+            
+            // Enable shine border animation
+            logoImage.classList.add('shine-border');
+            
+            console.log(`Placeholder adjusted to match logo size: ${logoRect.width}x${logoRect.height}`);
+            console.log('Shine border animation enabled');
+        });
+        
+        // Also adjust on window resize
+        window.addEventListener('resize', function() {
+            if (logoImage.complete && logoImage.naturalHeight !== 0) {
+                const logoRect = logoImage.getBoundingClientRect();
+                placeholder.style.minHeight = logoRect.height + 'px';
+            }
+        });
+        
+        // Enable shine border immediately if logo is already loaded
+        if (logoImage.complete && logoImage.naturalHeight !== 0) {
+            logoImage.classList.add('shine-border');
+        }
+    }
+}
+
+// Utility function to update product logo src (supports pvc.jpg)
+function updateProdLogoSrc(newSrc) {
+    const logoImage = document.querySelector('.prod-logo-section .logo-image');
+    if (logoImage) {
+        logoImage.src = newSrc;
+        console.log(`Logo updated to: ${newSrc}`);
+        // Re-adjust placeholder size after logo change
+        setTimeout(autoAdjustPlaceholderSize, 100);
+    }
+}
+
+// Utility function to update product tagline (now visible)
+function updateProdTagline(newTagline) {
+    const tagline = document.querySelector('.prod-logo-section .company-tagline');
+    if (tagline) {
+        tagline.textContent = newTagline;
+        console.log(`Tagline updated to: ${newTagline}`);
+    }
+}
+
+// Function to hide/show product logo section
+function toggleProdLogoSection(show = true) {
+    const prodLogoSection = document.querySelector('.prod-logo-section');
+    if (prodLogoSection) {
+        prodLogoSection.style.display = show ? 'block' : 'none';
+    }
+}
+
+// Initialize pulse animation
+addPulseAnimation();
+
+// Error handling for missing elements
+function handleMissingElements() {
+    setTimeout(() => {
+        const prodLogoSection = document.querySelector('.prod-logo-section');
+        if (!prodLogoSection) {
+            console.error('Product logo section not found. Make sure the HTML is properly added.');
+            return;
+        }
+        
+        const logoImage = prodLogoSection.querySelector('.logo-image');
+        if (logoImage) {
+            // Check if pvc.jpg loads properly
+            logoImage.addEventListener('error', function() {
+                console.warn('Logo image (pvc.jpg) failed to load, showing placeholder');
+            });
+            
+            logoImage.addEventListener('load', function() {
+                console.log('Logo image (pvc.jpg) loaded successfully');
+            });
+        }
+    }, 1000);
+}
+
+handleMissingElements();
+
+// Export functions for external use (optional)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        updateProdLogoSrc,
+        updateProdTagline,
+        toggleProdLogoSection,
+        initializeProdLogoSection
+    };
+}
 // Console welcome message
 console.log('%c🌱 Welcome to Parama Solutions! 🌱', 'color: #28a745; font-size: 16px; font-weight: bold;');
 console.log('%cInnovating for a Greener Tomorrow!', 'color: #ffc107; font-size: 14px;');

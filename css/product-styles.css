@@ -847,3 +847,199 @@
         padding: 60px 0;
     }
 }
+
+/* Product logo section under contact box styles */
+/* Product logo section under contact box styles */
+.prod-logo-section {
+    margin-top: 15px;
+    text-align: center;
+    padding: 15px 0;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.prod-logo-section:hover {
+    background: transparent;
+    transform: none;
+}
+
+.prod-logo-section .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.prod-logo-section .logo-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe) border-box;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1);
+    object-fit: contain;
+}
+
+.prod-logo-section .logo-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+    filter: brightness(1.05);
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea, #764ba2) border-box;
+}
+
+.prod-logo-section .placeholder-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)) padding-box,
+                linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe) border-box;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.prod-logo-section .placeholder-image:hover {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.01);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+    border: 3px solid transparent;
+    background: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.15)) padding-box,
+                linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea, #764ba2) border-box;
+}
+
+.prod-logo-section .company-tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.4;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.prod-logo-section:hover .company-tagline {
+    color: rgba(255, 255, 255, 1);
+}
+
+/* Animation classes */
+.prod-logo-fade-in {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prod-logo-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Add shining animation keyframes */
+@keyframes shine {
+    0% {
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe) border-box;
+    }
+    25% {
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(90deg, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea) border-box;
+    }
+    50% {
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(135deg, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea, #764ba2) border-box;
+    }
+    75% {
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(180deg, #f5576c, #4facfe, #00f2fe, #667eea, #764ba2, #f093fb) border-box;
+    }
+    100% {
+        background: linear-gradient(white, white) padding-box,
+                    linear-gradient(225deg, #4facfe, #00f2fe, #667eea, #764ba2, #f093fb, #f5576c) border-box;
+    }
+}
+
+/* Auto-adjustable shiny border class */
+.prod-logo-section .logo-image.shine-border {
+    animation: shine 3s ease-in-out infinite;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .prod-logo-section {
+        margin-top: 12px;
+        padding: 12px 0;
+    }
+
+    .prod-logo-section .logo-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .prod-logo-section .placeholder-image {
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        font-size: 10px;
+        padding: 12px;
+    }
+
+    .prod-logo-section .company-tagline {
+        font-size: 0.8rem;
+        letter-spacing: 0.3px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prod-logo-section {
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+
+    .prod-logo-section .logo-image {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .prod-logo-section .placeholder-image {
+        width: 100%;
+        height: auto;
+        min-height: 45px;
+        font-size: 9px;
+        padding: 10px;
+    }
+
+    .prod-logo-section .company-tagline {
+        font-size: 0.75rem;
+        margin-top: 6px;
+    }
+}
+
+/* Dark theme support (optional) */
+@media (prefers-color-scheme: dark) {
+    .prod-logo-section {
+        background: transparent;
+    }
+    
+    .prod-logo-section:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
