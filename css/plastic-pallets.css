@@ -20,13 +20,13 @@
 }
 
 .breadcrumb a {
-    color: #007bff;
+    color: var(--color-eco);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .breadcrumb a:hover {
-    color: #0056b3;
+    color: #1b5e20;
 }
 
 .breadcrumb-separator {
@@ -50,7 +50,7 @@
 /* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, #343529, #18131d);
-    color: #ffc107;
+    color: var(--parama-accent);
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -475,7 +475,7 @@
     padding: 25px;
     border-radius: 10px;
     margin-bottom: 35px;
-    border-left: 4px solid #007bff;
+    border-left: 4px solid var(--color-eco);
 }
 
 .additional-specs h4 {
@@ -587,7 +587,7 @@
 }
 
 .email-btn {
-    background-color: #007bff;
+    background-color: var(--color-eco);
     color: white;
 }
 
@@ -805,7 +805,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .product-page-container {
         padding: 10px;
     }
@@ -1071,7 +1071,7 @@
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
 }
 /* Subsidiary Companies Section */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .hero-section h1 {
         font-size: 2.5rem;
     }

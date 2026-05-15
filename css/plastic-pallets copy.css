@@ -1075,7 +1075,7 @@ body {
    =================================== */
 
 /* Styles for screens up to 1024px wide (tablets) */
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     /* Change product layout to single column */
     .product-layout {
         grid-template-columns: 1fr; /* Single column layout */
@@ -1099,7 +1099,7 @@ body {
    =================================== */
 
 /* Styles for screens up to 768px wide (small tablets) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Stack top bar content vertically */
     .top-bar .container {
         flex-direction: column; /* Vertical stacking */

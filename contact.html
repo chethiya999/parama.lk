@@ -4,8 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - PARAMA Group</title>
+    <link rel="stylesheet" href="css/theme-variables.css" />
+    <link rel="stylesheet" href="css/layout-primitives.css" />
+    <link rel="stylesheet" href="css/nav-shared.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/styles-use-nav.css" />
+    <link rel="stylesheet" href="css/footer-styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -38,11 +46,11 @@
         </div>
       </div>
 
-      <button class="mobile-menu-btn">
+      <button type="button" class="mobile-menu-btn tap-target" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
         <i class="fas fa-bars"></i>
       </button>
 
-      <div class="nav-links animate__animated animate__fadeIn">
+      <div id="primary-nav" class="nav-links animate__animated animate__fadeIn">
         <a href="index.html" class="active">Home</a>
 
         <div class="dropdown">
@@ -64,7 +72,19 @@
           </div>
         </div>
 
+        <div class="dropdown">
+          <a href="machinery.html">Machinery</a>
+          <div class="dropdown-content">
+            <a href="machinery.html#machinery-shredder">Shredder Machines</a>
+            <a href="machinery.html#machinery-crusher">PVC Crusher Machines</a>
+            <a href="machinery.html#machinery-pipe">PVC Pipe Machines</a>
+            <a href="machinery.html#machinery-laser">Laser Printing Machines</a>
+            <a href="machinery.html#machinery-blades">Industrial Blades</a>
+          </div>
+        </div>
+
         <a href="about.html">About us</a>
+        <a href="gallery/gallery.html">Gallery</a>
         <a href="contact.html">Contact Us</a>
       </div>
 
@@ -479,6 +499,11 @@
               sustainability, and community development drive everything we do.
             </p>
           </div>
+          <div class="footer-social" aria-label="Social media">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/94718393764" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
         </div>
 
         <!-- Navigation Links Section -->
@@ -488,6 +513,7 @@
             <li><a href="product-pvc.html">Products</a></li>
             <li><a href="plastic-recycale.html">Services</a></li>
             <li><a href="about.html">About us</a></li>
+            <li><a href="gallery/gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -552,6 +578,7 @@
       </div>
     </footer>
 
+    <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
   </body>
 </html>

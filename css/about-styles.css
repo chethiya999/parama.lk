@@ -5,10 +5,10 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #000000;
-    background-color: #f8f9fa;
+    color: var(--parama-text);
+    background-color: var(--parama-bg-alt);
 }
 
 .container {
@@ -20,8 +20,8 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #2f2935, #1a191b);
-    color: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7f2 50%, #fffdf5 100%);
+    color: var(--parama-text);
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -35,7 +35,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23f4d03f" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="%23f7dc6f" opacity="0.2"/><circle cx="40" cy="70" r="1" fill="%23f4d03f" opacity="0.25"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%232E7D32" opacity="0.08"/><circle cx="80" cy="40" r="1.5" fill="%23FBC02D" opacity="0.12"/><circle cx="40" cy="70" r="1" fill="%234CAF50" opacity="0.1"/></svg>');
     animation: float 20s infinite linear;
 }
 
@@ -46,16 +46,18 @@ body {
 
 .hero-section h1 {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 600;
+    font-family: var(--font-display);
     margin-bottom: 20px;
     position: relative;
     z-index: 2;
+    color: var(--parama-text);
 }
 
 .hero-section p {
     font-size: 1.3rem;
     margin-bottom: 30px;
-    opacity: 0.9;
+    color: var(--parama-text-muted);
     position: relative;
     z-index: 2;
     max-width: 600px;
@@ -603,7 +605,7 @@ body {
 
 
 /* Subsidiary Companies Section */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .hero-section h1 {
         font-size: 2.5rem;
     }

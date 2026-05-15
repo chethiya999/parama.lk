@@ -2,22 +2,85 @@
 
 // DOM Elements
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu functionality
+    const mqMobileNav = window.matchMedia('(max-width: 1023px)');
+
+    function ensureNavBackdrop() {
+        let el = document.querySelector('.nav-backdrop');
+        if (!el) {
+            el = document.createElement('button');
+            el.type = 'button';
+            el.className = 'nav-backdrop';
+            el.setAttribute('aria-label', 'Close navigation menu');
+            document.body.appendChild(el);
+            el.addEventListener('click', closeNavMenu);
+        }
+        return el;
+    }
+
+    function closeNavMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        document.body.classList.remove('nav-menu-open');
+        if (navLinks) navLinks.classList.remove('open');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) icon.className = 'fas fa-bars';
+        }
+        document.querySelectorAll('.dropdown.is-open').forEach(function (d) {
+            d.classList.remove('is-open');
+        });
+    }
+
+    function openNavMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (!navLinks || !mobileMenuBtn) return;
+        if (!mqMobileNav.matches) return;
+        ensureNavBackdrop();
+        navLinks.classList.add('open');
+        document.body.classList.add('nav-menu-open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (icon) icon.className = 'fas fa-times';
+    }
+
+    function toggleNavMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        if (!navLinks) return;
+        if (navLinks.classList.contains('open')) {
+            closeNavMenu();
+        } else {
+            openNavMenu();
+        }
+    }
+
     function createMobileMenu() {
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (mobileMenuBtn && navLinks) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('open');
-                
-                // Change icon based on menu state
-                const icon = mobileMenuBtn.querySelector('i');
-                if (navLinks.classList.contains('open')) {
-                    icon.className = 'fas fa-times';
-                } else {
-                    icon.className = 'fas fa-bars';
-                }
+            if (!navLinks.id) navLinks.id = 'primary-nav';
+            mobileMenuBtn.setAttribute('aria-controls', navLinks.id);
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+            mobileMenuBtn.addEventListener('click', function () {
+                toggleNavMenu();
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (!mqMobileNav.matches) return;
+                    var parentDd = link.closest('.dropdown');
+                    if (parentDd && link === parentDd.querySelector(':scope > a')) {
+                        return;
+                    }
+                    closeNavMenu();
+                });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeNavMenu();
             });
         }
     }
@@ -25,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navbar scroll effect
     function handleScroll() {
         const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
@@ -94,14 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                // Close mobile menu if open
-                const navLinks = document.querySelector('.nav-links');
-                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-                if (navLinks && navLinks.classList.contains('open')) {
-                    navLinks.classList.remove('open');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    if (icon) icon.className = 'fas fa-bars';
-                }
+                closeNavMenu();
                 
                 // Active link highlighting
                 document.querySelectorAll('.nav-links a').forEach(link => {
@@ -166,11 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Preload images for smoother experience
     function preloadImages() {
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            return;
+        }
         const imagesToPreload = [
-            'images/worker-image.jpg',
-            'images/stats-image.jpg',
+            'images/machinery/facility/hero.png',
             'images/logo/logo.png',
-            'images/logo.png'
+            'images/bg/ChatGPT Image May 14, 2026, 09_49_29 AM.png',
+            'images/bg/ChatGPT Image May 14, 2026, 12_37_12 PM.png',
+            'images/bg/ChatGPT Image May 14, 2026, 09_49_35 AM.png'
         ];
         
         imagesToPreload.forEach(src => {
@@ -190,32 +251,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Dropdown functionality for mobile
     function setupMobileDropdowns() {
-        const dropdowns = document.querySelectorAll('.dropdown');
-        
-        dropdowns.forEach(dropdown => {
-            const dropdownLink = dropdown.querySelector('a');
-            const dropdownContent = dropdown.querySelector('.dropdown-content');
-            
-            if (window.innerWidth <= 768 && dropdownLink && dropdownContent) {
-                dropdownLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Toggle dropdown content visibility
-                    if (dropdownContent.style.display === 'block') {
-                        dropdownContent.style.display = 'none';
-                    } else {
-                        // Close other dropdowns first
-                        document.querySelectorAll('.dropdown-content').forEach(content => {
-                            content.style.display = 'none';
-                        });
-                        dropdownContent.style.display = 'block';
-                    }
+        document.querySelectorAll('.dropdown').forEach(function (dropdown) {
+            const trigger = dropdown.querySelector(':scope > a');
+            const content = dropdown.querySelector('.dropdown-content');
+            if (!trigger || !content || trigger.dataset.paramaDropdownBound === '1') return;
+            trigger.dataset.paramaDropdownBound = '1';
+            trigger.addEventListener('click', function (e) {
+                if (!mqMobileNav.matches) return;
+                e.preventDefault();
+                const willOpen = !dropdown.classList.contains('is-open');
+                document.querySelectorAll('.dropdown.is-open').forEach(function (other) {
+                    if (other !== dropdown) other.classList.remove('is-open');
                 });
-            }
+                dropdown.classList.toggle('is-open', willOpen);
+            });
         });
     }
+
+    mqMobileNav.addEventListener('change', function () {
+        if (!mqMobileNav.matches) {
+            document.querySelectorAll('.dropdown.is-open').forEach(function (d) {
+                d.classList.remove('is-open');
+            });
+            closeNavMenu();
+        }
+    });
     
     // Active navigation highlighting based on scroll position
     function setupActiveNavigation() {
@@ -285,10 +346,125 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
     
+    function setupHeroSlideshow() {
+        const root = document.querySelector('.hero-slideshow');
+        if (!root) return;
+
+        const slides = root.querySelectorAll('.hero-slide');
+        const dots = root.querySelectorAll('.hero-slideshow-dot');
+        const prevBtn = root.querySelector('.hero-slideshow-prev');
+        const nextBtn = root.querySelector('.hero-slideshow-next');
+        if (!slides.length) return;
+
+        let index = 0;
+        let timer = null;
+        const intervalMs = 5500;
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function show(i) {
+            const n = ((i % slides.length) + slides.length) % slides.length;
+            index = n;
+            slides.forEach((slide, j) => {
+                const on = j === n;
+                slide.classList.toggle('is-active', on);
+                slide.setAttribute('aria-hidden', on ? 'false' : 'true');
+            });
+            dots.forEach((dot, j) => {
+                const on = j === n;
+                dot.classList.toggle('is-active', on);
+                dot.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+        }
+
+        function nextSlide() {
+            show(index + 1);
+        }
+
+        function prevSlide() {
+            show(index - 1);
+        }
+
+        function startAutoplay() {
+            if (prefersReduced || slides.length < 2) return;
+            stopAutoplay();
+            timer = window.setInterval(nextSlide, intervalMs);
+        }
+
+        function stopAutoplay() {
+            if (timer !== null) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        slides.forEach((slide, j) => {
+            slide.setAttribute('aria-hidden', j === 0 ? 'false' : 'true');
+        });
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startAutoplay();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startAutoplay();
+            });
+        }
+
+        dots.forEach((dot, j) => {
+            dot.addEventListener('click', () => {
+                show(j);
+                startAutoplay();
+            });
+        });
+
+        root.addEventListener('mouseenter', stopAutoplay);
+        root.addEventListener('mouseleave', startAutoplay);
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+
+        startAutoplay();
+    }
+
+    // Scroll reveal for sections using .reveal-on-scroll (css in theme-variables.css)
+    function setupRevealOnScroll() {
+        const els = document.querySelectorAll('.reveal-on-scroll');
+        if (!els.length) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            els.forEach((el) => el.classList.add('is-visible'));
+            return;
+        }
+
+        const io = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+        );
+
+        els.forEach((el) => io.observe(el));
+    }
+
     // Initialize all functions
     function init() {
         createMobileMenu();
         setupStatsAnimation();
+        setupRevealOnScroll();
         setupSmoothScrolling();
         setupButtonEffects();
         setupSubscribeForm();
@@ -296,21 +472,12 @@ document.addEventListener('DOMContentLoaded', function() {
         setupImageErrorHandling();
         setupMobileDropdowns();
         setupActiveNavigation();
+        setupHeroSlideshow();
         
         // Event listeners
         window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', () => {
-            // Close mobile menu on resize
-            const navLinks = document.querySelector('.nav-links');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            if (navLinks && navLinks.classList.contains('open')) {
-                navLinks.classList.remove('open');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
-            }
-            
-            // Reinitialize mobile dropdowns
-            setupMobileDropdowns();
+        window.addEventListener('resize', function () {
+            if (!mqMobileNav.matches) closeNavMenu();
         });
     }
     
