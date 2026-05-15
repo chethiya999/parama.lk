@@ -1,0 +1,12 @@
+{
+  "name": "parama-lk",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-static.mjs",
+    "deploy": "npm run build && wrangler pages deploy public --project-name=parama",
+    "deploy:worker": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.91.0"
+  }
+}

@@ -1,0 +1,18 @@
+// Cloudflare Pages (Git) — Workers & Pages → your project → Settings → Builds:
+//   Build command:          npm run build
+//   Build output directory: public
+//   (Leave deploy command empty; Pages deploys the build output automatically.)
+//
+// CLI: npm run deploy   (wrangler pages deploy public)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "parama",
+  "compatibility_date": "2026-05-15",
+  "observability": {
+    "enabled": true
+  },
+  "pages_build_output_dir": "./public",
+  "assets": {
+    "directory": "./public"
+  }
+}
