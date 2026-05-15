@@ -149,8 +149,7 @@
     var slides = (featured.length ? featured : items.slice(0, 6)).slice(0, 6);
     slides.forEach(function (it, i) {
       var div = document.createElement('div');
-      div.className =
-        'pg-hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-[1200ms] ease-out';
+      div.className = 'pg-hero-slide';
       div.style.backgroundImage = 'url("' + it.image.replace(/"/g, '\\"') + '")';
       div.style.opacity = i === 0 ? '1' : '0';
       div.setAttribute('role', 'img');
