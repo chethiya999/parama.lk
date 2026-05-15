@@ -1,0 +1,64 @@
+/* Shared layout helpers — load after theme-variables.css */
+
+.page-container {
+    width: min(100%, var(--container-max));
+    max-width: var(--container-wide);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.section-prose {
+    font-size: var(--text-body);
+    line-height: 1.65;
+}
+
+.section-prose h1,
+.section-prose .h1 {
+    font-size: var(--text-h1);
+    line-height: 1.15;
+}
+
+.section-prose h2,
+.section-prose .h2 {
+    font-size: var(--text-h2);
+    line-height: 1.2;
+}
+
+.section-prose h3,
+.section-prose .h3 {
+    font-size: var(--text-h3);
+    line-height: 1.25;
+}
+
+/* Responsive card grids: 1 col mobile → 2 tablet → 3–4 desktop */
+.grid-cards-responsive {
+    display: grid;
+    gap: clamp(1rem, 3vw, 1.75rem);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .grid-cards-responsive {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-cards-responsive {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid-cards-responsive--wide {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.tap-target {
+    min-width: var(--tap-min);
+    min-height: var(--tap-min);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

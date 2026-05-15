@@ -1,0 +1,329 @@
+/* Footer — soft charcoal premium bar */
+
+.footer {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    padding: 60px 0 0 0;
+    font-family: var(--font-body);
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--color-eco), var(--color-industrial), var(--color-gold-soft)) 1;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 30px);
+}
+
+/* Logo and Description Section */
+.footer-brand {
+    grid-column: 1 / 2;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+}
+
+.logo-text h2 {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: var(--font-display);
+    margin: 0;
+    color: #fff;
+}
+
+.logo-text p {
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-description {
+    margin-top: 20px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 15px;
+}
+
+.footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.footer-social a {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.footer-social a:hover {
+    transform: translateY(-3px);
+    background: rgba(76, 175, 80, 0.25);
+    border-color: var(--color-eco-bright);
+    color: #fff;
+}
+
+.footer-social a:focus-visible {
+    outline: 2px solid var(--color-industrial);
+    outline-offset: 3px;
+}
+
+/* Navigation Links Section */
+.footer-nav {
+    grid-column: 2 / 3;
+}
+
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 18px;
+}
+
+.footer-menu a {
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.25s ease;
+}
+
+.footer-menu a:hover {
+    color: var(--color-industrial);
+}
+
+/* Subscribe Form Section */
+.footer-subscribe {
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 16px;
+    font-family: var(--font-body);
+    transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.form-group input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-eco-bright);
+}
+
+.subscribe-btn {
+    padding: 14px 28px;
+    border-radius: var(--radius-lg);
+    border: none;
+    background: linear-gradient(180deg, var(--color-eco-bright) 0%, var(--color-eco) 100%);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 18px var(--color-eco-glow);
+}
+
+.subscribe-btn i {
+    margin-left: 10px;
+}
+
+.subscribe-btn:hover {
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--color-eco-glow);
+}
+
+/* Blog Posts Section */
+.footer-blog {
+    grid-column: 4 / 5;
+}
+
+.blog-post {
+    margin-bottom: 20px;
+}
+
+.blog-post a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blog-post h3 {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: var(--font-display);
+    color: #fff;
+    margin: 0 0 10px 0;
+    transition: color 0.25s ease;
+}
+
+.blog-post a:hover h3 {
+    color: var(--color-eco-bright);
+}
+
+.post-date {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+.blog-divider {
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.12);
+    margin: 20px 0;
+}
+
+/* Copyright Section */
+.footer-copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.copyright-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 14px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.25s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--color-gold-soft);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-brand {
+        grid-column: 1 / 2;
+    }
+
+    .footer-nav {
+        grid-column: 2 / 3;
+    }
+
+    .footer-subscribe {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        margin-top: 40px;
+    }
+
+    .footer-blog {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .footer-brand,
+    .footer-nav,
+    .footer-subscribe,
+    .footer-blog {
+        grid-column: 1 / 2;
+    }
+
+    .footer-nav {
+        grid-row: 2 / 3;
+    }
+
+    .footer-subscribe {
+        grid-row: 3 / 4;
+        margin-top: 0;
+    }
+
+    .footer-blog {
+        grid-row: 4 / 5;
+        margin-top: 0;
+    }
+
+    .footer-copyright {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+}

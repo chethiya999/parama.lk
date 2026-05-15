@@ -1,0 +1,8 @@
+.git/
+node_modules/
+*.md
+*copy*
+*.psd
+*.ai
+.env
+.DS_Store

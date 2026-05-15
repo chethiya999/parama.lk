@@ -1,0 +1,1257 @@
+/* Parama Machinery Division — light industrial theme */
+
+:root {
+    --mach-carbon: #f1f5f9;
+    --mach-navy: #e8edf4;
+    --mach-navy-2: #dce3ee;
+    /* Primary UI: charcoal + gold (aligned with site theme) */
+    --mach-blue: var(--parama-charcoal);
+    --mach-blue-glow: var(--parama-accent-glow);
+    --mach-steel: #64748b;
+    --mach-silver: var(--parama-text);
+    --mach-text: var(--parama-text);
+    --mach-text-inverse: #ffffff;
+    --mach-accent: var(--parama-accent);
+    --mach-accent-bright: var(--parama-accent-2);
+    --mach-accent-dim: rgba(251, 192, 45, 0.18);
+    --mach-glass: rgba(255, 255, 255, 0.9);
+    --mach-glass-border: rgba(15, 23, 42, 0.1);
+    --mach-surface: #ffffff;
+    --mach-shadow: rgba(15, 23, 42, 0.06);
+    --mach-shadow-lg: rgba(15, 23, 42, 0.1);
+    --mach-font: var(--font-body);
+    --mach-radius: 14px;
+    --mach-radius-lg: 22px;
+    --mach-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.machinery-body {
+    font-family: var(--mach-font);
+    background: linear-gradient(180deg, #f8fafc 0%, var(--mach-carbon) 45%, #eef2f7 100%);
+    color: var(--mach-silver);
+    min-height: 100vh;
+}
+
+.machinery-body .navbar {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+}
+
+.machinery-skip {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 10001;
+    padding: 12px 20px;
+    background: var(--mach-accent);
+    color: #111;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.machinery-skip:focus {
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+}
+
+/* Page banner matches product pages (.hero-section in product-styles.css) */
+
+.machinery-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(251, 192, 45, 0.4);
+    box-shadow: 0 0 8px var(--mach-blue-glow);
+    animation: machineryParticleFloat linear infinite;
+}
+
+@keyframes machineryParticleFloat {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+@keyframes machinerySpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.machinery-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.35s var(--mach-ease), box-shadow 0.35s var(--mach-ease), background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.machinery-btn--primary {
+    background: linear-gradient(135deg, var(--parama-charcoal), var(--parama-charcoal-mid));
+    color: #fff;
+    box-shadow: 0 8px 32px var(--mach-blue-glow);
+}
+
+.machinery-btn--primary:hover,
+.machinery-btn--primary:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 48px var(--mach-blue-glow);
+}
+
+.machinery-btn--outline {
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--mach-text);
+    border-color: rgba(15, 23, 42, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.machinery-btn--outline:hover,
+.machinery-btn--outline:focus-visible {
+    border-color: var(--parama-accent);
+    color: var(--parama-accent);
+    transform: translateY(-3px);
+}
+
+.machinery-btn--small {
+    padding: 10px 18px;
+    font-size: 0.82rem;
+}
+
+.machinery-btn--ghost {
+    background: transparent;
+    color: var(--mach-steel);
+    border-color: rgba(148, 163, 184, 0.35);
+}
+
+.machinery-btn--ghost:hover {
+    color: var(--parama-accent);
+    border-color: var(--parama-accent);
+}
+
+.machinery-btn--whatsapp {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
+}
+
+.machinery-btn--whatsapp:hover {
+    transform: translateY(-2px);
+}
+
+/* ——— Reveal ——— */
+.machinery-reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.8s var(--mach-ease), transform 0.8s var(--mach-ease);
+}
+
+.machinery-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.machinery-reveal--left.is-visible {
+    transform: translateX(0);
+}
+
+.machinery-reveal--left {
+    transform: translateX(-28px);
+}
+
+/* ——— Sections ——— */
+.machinery-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.machinery-section {
+    padding: clamp(72px, 12vw, 120px) 0;
+    position: relative;
+}
+
+.machinery-section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    color: var(--mach-text);
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+}
+
+.machinery-section-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+}
+
+.machinery-section-desc {
+    color: var(--mach-steel);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.machinery-kicker {
+    color: var(--parama-accent);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+}
+
+.machinery-lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--mach-steel);
+    margin-bottom: 36px;
+}
+
+/* ——— Intro ——— */
+.machinery-intro {
+    background: linear-gradient(180deg, #ffffff 0%, var(--mach-navy) 100%);
+}
+
+.machinery-intro__grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+}
+
+.machinery-intro__frame {
+    position: relative;
+    border-radius: var(--mach-radius-lg);
+    overflow: hidden;
+    box-shadow:
+        0 16px 48px var(--mach-shadow-lg),
+        0 0 0 1px var(--mach-glass-border),
+        inset 0 0 0 1px rgba(255, 255, 255, 1);
+}
+
+.machinery-intro__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    transition: transform 1.2s var(--mach-ease);
+}
+
+.machinery-intro__frame:hover .machinery-intro__img {
+    transform: scale(1.05);
+}
+
+.machinery-intro__frame-corner {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--mach-accent);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.machinery-intro__frame-corner--tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+.machinery-intro__frame-corner--br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
+/* Intro: multi-image feature mosaic */
+.machinery-feature-mosaic {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.88fr;
+    gap: 12px;
+    min-height: 320px;
+    max-height: min(52vh, 520px);
+    border-radius: var(--mach-radius-lg);
+    overflow: hidden;
+    box-shadow:
+        0 16px 48px var(--mach-shadow-lg),
+        0 0 0 1px var(--mach-glass-border),
+        inset 0 0 0 1px rgba(255, 255, 255, 1);
+    grid-template-areas:
+        "hero hero shred pipe"
+        "hero hero crush laser"
+        "factory factory sbld cbld";
+}
+
+.machinery-feature-mosaic__cell {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--mach-radius);
+    text-decoration: none;
+    color: #f8fafc;
+    outline-offset: 2px;
+    min-height: 0;
+}
+
+.machinery-feature-mosaic__cell:focus-visible {
+    outline: 2px solid var(--parama-accent);
+    z-index: 2;
+}
+
+.machinery-feature-mosaic__cell img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.85s var(--mach-ease);
+}
+
+.machinery-feature-mosaic__cell:hover img,
+.machinery-feature-mosaic__cell:focus-visible img {
+    transform: scale(1.06);
+}
+
+.machinery-feature-mosaic__label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 12px 12px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(transparent, rgba(15, 23, 42, 0.88));
+    pointer-events: none;
+}
+
+.machinery-feature-mosaic__cell--hero { grid-area: hero; }
+.machinery-feature-mosaic__cell--shred { grid-area: shred; }
+.machinery-feature-mosaic__cell--pipe { grid-area: pipe; }
+.machinery-feature-mosaic__cell--crush { grid-area: crush; }
+.machinery-feature-mosaic__cell--laser { grid-area: laser; }
+.machinery-feature-mosaic__cell--factory { grid-area: factory; }
+.machinery-feature-mosaic__cell--sbld { grid-area: sbld; }
+.machinery-feature-mosaic__cell--cbld { grid-area: cbld; }
+
+.machinery-stats {
+    display: grid;
+    gap: 16px;
+}
+
+.machinery-stats--intro {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.machinery-stat-card {
+    padding: 22px 18px;
+    border-radius: var(--mach-radius);
+    background: var(--mach-surface);
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 4px 20px var(--mach-shadow);
+    backdrop-filter: none;
+    text-align: center;
+    transition: transform 0.4s var(--mach-ease), box-shadow 0.4s var(--mach-ease), border-color 0.3s;
+}
+
+.machinery-stat-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 193, 7, 0.35);
+    box-shadow: 0 12px 36px rgba(255, 193, 7, 0.12), 0 0 0 1px var(--mach-accent-dim);
+}
+
+.machinery-stat-card__icon {
+    font-size: 1.35rem;
+    color: var(--mach-accent);
+    margin-bottom: 10px;
+}
+
+.machinery-stat-card__value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--mach-text);
+}
+
+.machinery-stat-card__label {
+    font-size: 0.82rem;
+    color: var(--mach-steel);
+    margin-top: 6px;
+    line-height: 1.35;
+}
+
+/* ——— Showcase ——— */
+.machinery-showcase {
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 193, 7, 0.08), transparent 55%), linear-gradient(180deg, var(--mach-carbon) 0%, #ffffff 100%);
+}
+
+.machinery-card-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.machinery-product-card {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 0;
+    border-radius: var(--mach-radius-lg);
+    overflow: hidden;
+    background: var(--mach-surface);
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 12px 48px var(--mach-shadow-lg);
+    transition: transform 0.5s var(--mach-ease), box-shadow 0.5s var(--mach-ease);
+}
+
+.machinery-product-card:hover {
+    transform: translateY(-8px) perspective(1200px) rotateX(1deg);
+    box-shadow: 0 24px 64px rgba(255, 193, 7, 0.12), 0 0 0 1px rgba(255, 193, 7, 0.12);
+}
+
+.machinery-product-card:nth-child(even) {
+    grid-template-columns: 1fr 1.05fr;
+}
+
+.machinery-product-card:nth-child(even) .machinery-product-card__media {
+    order: 2;
+}
+
+.machinery-product-card:nth-child(even) .machinery-product-card__body {
+    order: 1;
+}
+
+.machinery-product-card__media {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+}
+
+.machinery-product-gallery {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 280px;
+}
+
+.machinery-product-gallery__main {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 220px;
+    overflow: hidden;
+}
+
+.machinery-product-gallery__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    object-fit: cover;
+    transition: transform 0.9s var(--mach-ease);
+}
+
+.machinery-product-card:hover .machinery-product-gallery__main .machinery-product-gallery__img {
+    transform: scale(1.08);
+}
+
+.machinery-product-gallery__thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid var(--mach-glass-border);
+    flex-shrink: 0;
+}
+
+.machinery-product-gallery__thumb {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgba(148, 163, 184, 0.45);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #e2e8f0;
+    line-height: 0;
+    transition: border-color 0.2s var(--mach-ease), box-shadow 0.2s var(--mach-ease);
+}
+
+.machinery-product-gallery__thumb:hover,
+.machinery-product-gallery__thumb:focus-visible {
+    border-color: var(--parama-accent);
+}
+
+.machinery-product-gallery__thumb.is-active {
+    border-color: var(--parama-accent);
+    box-shadow: 0 0 0 2px var(--mach-blue-glow);
+}
+
+.machinery-product-gallery__thumb:focus-visible {
+    outline: none;
+}
+
+.machinery-product-gallery__thumb img {
+    display: block;
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .machinery-product-gallery__thumbs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+}
+
+.machinery-product-card__badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111;
+    background: linear-gradient(135deg, var(--mach-accent), #ffe082);
+    border-radius: 8px;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(255, 193, 7, 0.35);
+}
+
+.machinery-product-card__shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(125deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.9s var(--mach-ease);
+    pointer-events: none;
+}
+
+.machinery-product-card:hover .machinery-product-card__shine {
+    transform: translateX(100%);
+}
+
+.machinery-product-card__body {
+    padding: clamp(24px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.machinery-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--parama-accent);
+    margin-bottom: 12px;
+}
+
+.machinery-product-card__title {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: var(--mach-text);
+    margin-bottom: 12px;
+}
+
+.machinery-product-card__desc {
+    color: var(--mach-steel);
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+.machinery-feature-list {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+}
+
+.machinery-feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: var(--mach-steel);
+    margin-bottom: 8px;
+}
+
+.machinery-feature-list i {
+    color: var(--mach-accent);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.machinery-product-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.machinery-blades-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.machinery-blades-row .machinery-product-card {
+    grid-template-columns: 1fr;
+}
+
+.machinery-blades-row .machinery-product-card .machinery-product-card__media {
+    order: 0 !important;
+    min-height: 0;
+}
+
+.machinery-blades-row .machinery-product-gallery {
+    min-height: 260px;
+}
+
+.machinery-blades-row .machinery-product-gallery__main {
+    min-height: 168px;
+}
+
+.machinery-blades-row .machinery-product-gallery__img {
+    min-height: 168px;
+}
+
+.machinery-blades-row .machinery-product-card .machinery-product-card__body {
+    order: 0 !important;
+}
+
+/* ——— Industries ——— */
+.machinery-industries {
+    background: var(--mach-navy);
+}
+
+.machinery-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.machinery-industry-card {
+    position: relative;
+    padding: 32px 24px;
+    border-radius: var(--mach-radius);
+    background: var(--mach-surface);
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 4px 20px var(--mach-shadow);
+    overflow: hidden;
+    transition: transform 0.45s var(--mach-ease), border-color 0.3s;
+}
+
+.machinery-industry-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 193, 7, 0.35);
+}
+
+.machinery-industry-card__glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 50% 80%, var(--mach-blue-glow), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.machinery-industry-card:hover .machinery-industry-card__glow {
+    opacity: 0.35;
+}
+
+.machinery-industry-card__icon {
+    font-size: 2rem;
+    color: var(--mach-accent);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.machinery-industry-card__title {
+    font-size: 1.15rem;
+    color: var(--mach-text);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.machinery-industry-card__text {
+    font-size: 0.92rem;
+    color: var(--mach-steel);
+    line-height: 1.55;
+    position: relative;
+    z-index: 1;
+}
+
+/* ——— Gallery masonry ——— */
+.machinery-gallery-section {
+    background: linear-gradient(180deg, #ffffff 0%, var(--mach-navy-2) 100%);
+}
+
+.machinery-masonry {
+    column-count: 3;
+    column-gap: 18px;
+}
+
+.machinery-masonry__item {
+    break-inside: avoid;
+    margin-bottom: 18px;
+    position: relative;
+    border: none;
+    padding: 0;
+    width: 100%;
+    cursor: zoom-in;
+    border-radius: var(--mach-radius);
+    overflow: hidden;
+    display: block;
+    background: var(--mach-surface);
+    box-shadow: 0 8px 28px var(--mach-shadow-lg);
+    transition: transform 0.45s var(--mach-ease), box-shadow 0.45s;
+}
+
+.machinery-masonry__item:focus-visible {
+    outline: 3px solid var(--mach-accent);
+    outline-offset: 2px;
+}
+
+.machinery-masonry__item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 40px rgba(255, 193, 7, 0.15);
+}
+
+.machinery-masonry__item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+    transition: transform 0.7s var(--mach-ease);
+}
+
+.machinery-masonry__item:hover img {
+    transform: scale(1.08);
+}
+
+.machinery-masonry__item--tall img {
+    min-height: 320px;
+    object-fit: cover;
+}
+
+.machinery-masonry__item--compact .machinery-masonry__cap {
+    font-size: 0.78rem;
+    padding: 10px 12px;
+}
+
+.machinery-masonry__cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--mach-text);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+    text-align: left;
+}
+
+/* ——— Why ——— */
+.machinery-why {
+    background: var(--mach-carbon);
+}
+
+.machinery-why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.machinery-why-card {
+    padding: 28px 22px;
+    border-radius: var(--mach-radius);
+    background: var(--mach-surface);
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 4px 18px var(--mach-shadow);
+    backdrop-filter: none;
+    transition: transform 0.45s var(--mach-ease), box-shadow 0.45s;
+    animation: machineryCardFloat 7s ease-in-out infinite;
+}
+
+.machinery-why-card:nth-child(2) { animation-delay: 0.5s; }
+.machinery-why-card:nth-child(3) { animation-delay: 1s; }
+.machinery-why-card:nth-child(4) { animation-delay: 1.5s; }
+.machinery-why-card:nth-child(5) { animation-delay: 0.3s; }
+.machinery-why-card:nth-child(6) { animation-delay: 0.8s; }
+.machinery-why-card:nth-child(7) { animation-delay: 1.2s; }
+.machinery-why-card:nth-child(8) { animation-delay: 1.7s; }
+
+@keyframes machineryCardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.machinery-why-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 16px 40px rgba(255, 193, 7, 0.12);
+    border-color: rgba(245, 158, 11, 0.45);
+    animation: none;
+}
+
+.machinery-why-card i {
+    font-size: 1.6rem;
+    color: var(--mach-accent);
+    margin-bottom: 14px;
+}
+
+.machinery-why-card h3 {
+    font-size: 1rem;
+    color: var(--mach-text);
+    margin-bottom: 8px;
+}
+
+.machinery-why-card p {
+    font-size: 0.88rem;
+    color: var(--mach-steel);
+    line-height: 1.5;
+}
+
+/* ——— Support ——— */
+.machinery-support {
+    background: linear-gradient(135deg, #f8fafc 0%, var(--mach-navy) 100%);
+}
+
+.machinery-support__layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.2fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.machinery-engineer-card {
+    position: relative;
+    padding: 48px 32px;
+    text-align: center;
+    border-radius: var(--mach-radius-lg);
+    background: linear-gradient(160deg, rgba(255, 193, 7, 0.08), var(--mach-surface));
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 8px 32px var(--mach-shadow-lg);
+    overflow: hidden;
+}
+
+.machinery-engineer-card__ring {
+    position: absolute;
+    inset: -40%;
+    border: 1px solid rgba(255, 193, 7, 0.12);
+    border-radius: 50%;
+    animation: machinerySpin 40s linear infinite;
+}
+
+.machinery-engineer-card__icon {
+    font-size: 4rem;
+    color: var(--mach-accent);
+    position: relative;
+    z-index: 1;
+}
+
+.machinery-engineer-card__label {
+    margin-top: 16px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--mach-text);
+    position: relative;
+    z-index: 1;
+}
+
+.machinery-engineer-card__sub {
+    color: var(--mach-steel);
+    font-size: 0.9rem;
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.machinery-timeline {
+    list-style: none;
+    margin: 32px 0 0;
+    padding: 0;
+    border-left: 2px solid rgba(15, 23, 42, 0.12);
+}
+
+.machinery-timeline__item {
+    position: relative;
+    padding: 0 0 28px 28px;
+}
+
+.machinery-timeline__item:last-child {
+    padding-bottom: 0;
+}
+
+.machinery-timeline__dot {
+    position: absolute;
+    left: -9px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--mach-accent);
+    box-shadow: 0 0 20px var(--mach-accent);
+}
+
+.machinery-timeline__item h3 {
+    color: var(--mach-text);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.machinery-timeline__item p {
+    color: var(--mach-steel);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.machinery-support__cta {
+    margin-top: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.machinery-hotline {
+    padding: 20px 24px;
+    border-radius: var(--mach-radius);
+    background: var(--mach-surface);
+    border: 1px solid var(--mach-glass-border);
+    box-shadow: 0 4px 16px var(--mach-shadow);
+}
+
+.machinery-hotline__label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mach-steel);
+    margin-bottom: 8px;
+}
+
+.machinery-hotline__num {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--parama-accent);
+    text-decoration: none;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+}
+
+.machinery-hotline__num:hover {
+    color: var(--mach-accent);
+}
+
+/* ——— CTA banner ——— */
+.machinery-cta-banner {
+    position: relative;
+    padding: clamp(80px, 14vw, 120px) 24px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(120deg, var(--parama-bg-alt), #f8fafc, #f1f5f9, #f8fafc);
+    background-size: 300% 300%;
+    animation: machineryCtaGradient 16s ease infinite;
+}
+
+@keyframes machineryCtaGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.machinery-cta-banner__particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.machinery-cta-banner__silhouette {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200' preserveAspectRatio='none'%3E%3Cpath fill='%2394a3b8' fill-opacity='0.12' d='M0 200 L0 120 L80 100 L140 130 L200 90 L280 110 L360 70 L440 100 L520 60 L600 90 L680 50 L760 85 L840 55 L920 95 L1000 70 L1080 100 L1160 80 L1200 90 L1200 200 Z'/%3E%3C/svg%3E") center bottom / 100% 100% no-repeat;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.machinery-cta-banner__inner {
+    position: relative;
+    z-index: 2;
+}
+
+.machinery-cta-banner__title {
+    font-size: clamp(1.75rem, 4vw, 2.6rem);
+    color: var(--mach-text);
+    margin-bottom: 16px;
+}
+
+.machinery-cta-banner__text {
+    color: var(--mach-steel);
+    max-width: 640px;
+    margin: 0 auto 32px;
+    font-size: 1.1rem;
+    line-height: 1.65;
+}
+
+.machinery-cta-banner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* ——— Lightbox ——— */
+.machinery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s var(--mach-ease), visibility 0.35s;
+}
+
+.machinery-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.machinery-lightbox[hidden] {
+    display: none !important;
+}
+
+.machinery-lightbox.is-open[hidden] {
+    display: flex !important;
+}
+
+.machinery-lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.machinery-lightbox__close:hover {
+    background: var(--mach-accent);
+    color: #111;
+    transform: rotate(90deg);
+}
+
+.machinery-lightbox__figure {
+    max-width: min(1100px, 100%);
+    margin: 0;
+}
+
+.machinery-lightbox__figure img {
+    width: 100%;
+    height: auto;
+    max-height: min(82vh, 900px);
+    object-fit: contain;
+    border-radius: var(--mach-radius);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.machinery-lightbox__figure figcaption {
+    margin-top: 16px;
+    text-align: center;
+    color: #e2e8f0;
+    font-size: 1.05rem;
+}
+
+/* ——— Footer extensions ——— */
+.machinery-footer .footer-container {
+    grid-template-columns: 1.8fr 1fr 1fr 1.4fr 1.6fr;
+    gap: 28px;
+}
+
+.machinery-footer-heading {
+    color: var(--color-eco-bright);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-family: var(--font-display);
+}
+
+.machinery-footer-contact {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.machinery-footer-contact p {
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+.machinery-footer-contact a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.machinery-footer-contact a:hover {
+    color: var(--color-industrial);
+}
+
+.machinery-footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.machinery-social-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.25s, background 0.25s, color 0.25s;
+}
+
+.machinery-social-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(76, 175, 80, 0.35);
+    border-color: var(--color-eco-bright);
+    color: #fff;
+}
+
+/* ——— Responsive ——— */
+@media (max-width: 1100px) {
+    .machinery-footer .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .machinery-intro__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-feature-mosaic {
+        max-height: none;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        grid-template-areas:
+            "hero hero"
+            "shred pipe"
+            "crush laser"
+            "factory factory"
+            "sbld cbld";
+        min-height: 0;
+    }
+
+    .machinery-feature-mosaic__cell--hero {
+        min-height: 200px;
+    }
+
+    .machinery-feature-mosaic__cell:not(.machinery-feature-mosaic__cell--hero):not(.machinery-feature-mosaic__cell--factory) {
+        min-height: 140px;
+    }
+
+    .machinery-feature-mosaic__cell--factory {
+        min-height: 160px;
+    }
+
+    .machinery-stats--intro {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .machinery-product-card,
+    .machinery-product-card:nth-child(even) {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-product-card:nth-child(even) .machinery-product-card__media,
+    .machinery-product-card:nth-child(even) .machinery-product-card__body {
+        order: unset;
+    }
+
+    .machinery-blades-row {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-industry-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .machinery-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .machinery-support__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-masonry {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .machinery-stats--intro {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-industry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machinery-masonry {
+        column-count: 1;
+    }
+
+    .machinery-btn {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .machinery-cta-banner,
+    .machinery-why-card {
+        animation: none !important;
+    }
+
+    .machinery-reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .machinery-particle {
+        display: none;
+    }
+}
