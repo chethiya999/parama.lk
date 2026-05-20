@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "parama-lk",
+  "compatibility_date": "2026-05-20",
+  "assets": {
+    "directory": "./public"
+  },
+  "pages_build_output_dir": "./public"
+}

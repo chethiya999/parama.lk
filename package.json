@@ -4,6 +4,11 @@
   "scripts": {
     "seo": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs",
     "build": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs",
-    "build:static": "node scripts/build-static.mjs"
+    "build:static": "node scripts/build-static.mjs",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.22.0"
   }
 }
