@@ -3,8 +3,8 @@
  * Cloudflare Pages CI build: SEO + sitemap + copy static files into public/.
  * Images are served from R2 URLs in HTML; no local images/ directory is required.
  *
- * Dashboard build command:
- *   bun install && node scripts/workers-ci-build.mjs
+ * Dashboard build command (bun install runs automatically in CI):
+ *   node scripts/workers-ci-build.mjs
  */
 
 import { execSync } from 'child_process';

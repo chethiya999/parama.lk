@@ -6,9 +6,11 @@
     "build": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs",
     "build:static": "node scripts/build-static.mjs",
     "build:pages": "node scripts/workers-ci-build.mjs",
+    "cf:ci": "node scripts/workers-ci-build.mjs && npx wrangler pages deploy public --project-name=parama",
     "deploy": "npm run build && npx wrangler pages deploy public --project-name=parama",
     "pages:deploy": "npm run build && npx wrangler pages deploy public --project-name=parama",
-    "preview": "npx wrangler pages dev public"
+    "preview": "npx wrangler pages dev public",
+    "verify:cf": "node scripts/verify-cloudflare-deploy.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.22.0"

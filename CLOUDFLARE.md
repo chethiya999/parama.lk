@@ -4,13 +4,19 @@ Static HTML/CSS/JS is built into `public/` and deployed to **Cloudflare Pages**.
 
 ## Cloudflare Pages (dashboard)
 
+**Action required:** If deploy logs show `npx wrangler deploy` or *Missing entry-point*, update the settings below in the dashboard (repo changes alone do not change dashboard commands).
+
 In **Workers & Pages → parama → Settings → Builds**:
 
 | Setting | Value |
 |---------|-------|
-| **Build command** | `bun install && node scripts/workers-ci-build.mjs` |
+| **Build command** | `node scripts/workers-ci-build.mjs` |
 | **Build output directory** | `public` |
-| **Deploy command** | `npx wrangler pages deploy public` |
+| **Deploy command** | `npx wrangler pages deploy public --project-name=parama` |
+
+(`bun install` runs automatically before the build command in CI.)
+
+**Alternative (single deploy step):** leave **Build command** empty and set **Deploy command** to `bun run cf:ci` (build + deploy via [`package.json`](package.json)).
 
 Do **not** use `npx wrangler deploy` — that targets a Worker and fails with *"Missing entry-point to Worker script or to assets directory"* when no `main` or `assets.directory` is configured.
 
@@ -19,7 +25,7 @@ Do **not** use `npx wrangler deploy` — that targets a Worker and fails with *"
 | Command | Use for |
 |---------|---------|
 | `npx wrangler deploy` | Workers (needs `main` or `assets.directory`) |
-| `npx wrangler pages deploy public` | Static Pages site in `public/` |
+| `npx wrangler pages deploy public --project-name=parama` | Static Pages site in `public/` |
 
 ## `wrangler.jsonc`
 
@@ -40,7 +46,8 @@ Multi-page static HTML (links use `*.html` paths). No `_redirects` file.
 ```bash
 bun install
 bun run build              # or: node scripts/workers-ci-build.mjs
-bun run deploy             # build + npx wrangler pages deploy public --project-name=parama
+bun run deploy             # build + pages deploy
+bun run cf:ci              # same as Cloudflare CI (build + pages deploy)
 npx wrangler pages deploy public --project-name=parama
 bun run preview            # npx wrangler pages dev public
 ```
