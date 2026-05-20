@@ -5,8 +5,9 @@
     "seo": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs",
     "build": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs",
     "build:static": "node scripts/build-static.mjs",
-    "deploy": "npm run build && wrangler pages deploy",
-    "pages:deploy": "wrangler pages deploy",
+    "postinstall": "node scripts/workers-ci-build.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "pages:deploy": "npm run build && wrangler pages deploy",
     "preview": "wrangler pages dev public"
   },
   "devDependencies": {
