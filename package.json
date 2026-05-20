@@ -5,7 +5,7 @@
     "seo": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs",
     "build": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs",
     "build:static": "node scripts/build-static.mjs",
-    "postinstall": "node scripts/workers-ci-build.mjs",
+    "build:pages": "node scripts/workers-ci-build.mjs",
     "deploy": "npm run build && npx wrangler pages deploy public --project-name=parama",
     "pages:deploy": "npm run build && npx wrangler pages deploy public --project-name=parama",
     "preview": "npx wrangler pages dev public"

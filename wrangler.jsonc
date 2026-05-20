@@ -1,7 +1,5 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "parama",
-  "compatibility_date": "2026-05-20",
-  // Static site output for Cloudflare Pages (see `bun run deploy`)
+  // Cloudflare Pages static site — no Worker entrypoint, no assets binding
   "pages_build_output_dir": "public"
 }

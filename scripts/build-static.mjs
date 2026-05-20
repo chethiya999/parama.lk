@@ -17,7 +17,8 @@ const OUT_DIR = path.join(ROOT, 'public');
 
 const MAX_BYTES = 24 * 1024 * 1024;
 
-const COPY_DIRS = ['css', 'js', 'images', 'gallery', 'seo'];
+// Product photos and logos use R2 URLs in HTML — no local images/ directory
+const COPY_DIRS = ['css', 'js', 'gallery', 'seo'];
 
 const COPY_ROOT_FILES = [
   'robots.txt',

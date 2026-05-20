@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
- * Run production build on Cloudflare CI only (after bun/npm install).
- * Ensures public/ exists before `wrangler pages deploy` when the dashboard
- * build command is empty but deploy runs `npx wrangler pages deploy public`.
+ * Cloudflare Pages CI build: SEO + sitemap + copy static files into public/.
+ * Images are served from R2 URLs in HTML; no local images/ directory is required.
+ *
+ * Dashboard build command:
+ *   bun install && node scripts/workers-ci-build.mjs
  */
 
 import { execSync } from 'child_process';
@@ -12,16 +14,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-const isCloudflareCI =
-  process.env.WORKERS_CI === '1' ||
-  process.env.CI === 'true' ||
-  process.env.CF_PAGES === '1';
-
-if (!isCloudflareCI) {
-  process.exit(0);
-}
-
-console.log('[ci] Building static site into public/ …');
+console.log('[pages] Building static site into public/ …');
 
 execSync(
   'node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs',
