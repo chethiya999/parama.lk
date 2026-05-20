@@ -5,8 +5,9 @@
     "seo": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs",
     "build": "node scripts/apply-seo.mjs && node scripts/generate-sitemap.mjs && node scripts/build-static.mjs",
     "build:static": "node scripts/build-static.mjs",
-    "deploy": "wrangler deploy",
-    "preview": "wrangler dev"
+    "deploy": "npm run build && wrangler pages deploy",
+    "pages:deploy": "wrangler pages deploy",
+    "preview": "wrangler pages dev public"
   },
   "devDependencies": {
     "wrangler": "^4.22.0"

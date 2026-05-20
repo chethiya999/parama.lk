@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Copy production static assets into public/ for Cloudflare Workers deploy.
+ * Copy production static assets into public/ for Cloudflare Pages deploy.
  *
  * Usage (from repo root):
  *   node scripts/build-static.mjs
