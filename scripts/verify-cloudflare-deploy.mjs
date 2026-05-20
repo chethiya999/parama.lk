@@ -24,6 +24,9 @@ const wrangler = fs.readFileSync(wranglerPath, 'utf8');
 if (!wrangler.includes('pages_build_output_dir')) {
   errors.push('wrangler.jsonc must set pages_build_output_dir');
 }
+if (!/"name"\s*:\s*"parama"/.test(wrangler)) {
+  errors.push('wrangler.jsonc must set "name": "parama" (Pages project name)');
+}
 if (/\"main\"\s*:/.test(wrangler) || /\"assets\"\s*:/.test(wrangler)) {
   errors.push('wrangler.jsonc must not set main or assets (Pages static site)');
 }

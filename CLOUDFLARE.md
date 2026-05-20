@@ -33,6 +33,7 @@ Pages-only config — no `main`, no `assets`, no Worker script:
 
 ```jsonc
 {
+  "name": "parama",
   "pages_build_output_dir": "public"
 }
 ```

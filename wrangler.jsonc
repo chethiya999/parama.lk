@@ -6,5 +6,6 @@
   //   Build output directory: public
   //   Deploy command: npx wrangler pages deploy public --project-name=parama
   // Do NOT use: npx wrangler deploy
+  "name": "parama",
   "pages_build_output_dir": "public"
 }
