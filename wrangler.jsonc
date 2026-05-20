@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "parama-lk",
+  "name": "parama",
   "compatibility_date": "2026-05-20",
   "assets": {
     "directory": "./public"
