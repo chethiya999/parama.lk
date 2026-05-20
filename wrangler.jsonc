@@ -2,9 +2,6 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "parama",
   "compatibility_date": "2026-05-20",
-  // HTML/CSS/JS built into public/; images served from R2 (see site HTML)
-  "assets": {
-    "directory": "./public"
-  },
-  "pages_build_output_dir": "./public"
+  // Static site output for Cloudflare Pages (see `bun run deploy`)
+  "pages_build_output_dir": "public"
 }

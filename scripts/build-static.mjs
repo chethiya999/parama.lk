@@ -22,7 +22,6 @@ const COPY_DIRS = ['css', 'js', 'images', 'gallery', 'seo'];
 const COPY_ROOT_FILES = [
   'robots.txt',
   'sitemap.xml',
-  '_redirects',
   '_headers',
 ];
 

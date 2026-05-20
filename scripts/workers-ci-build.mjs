@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Run production build on Cloudflare CI only (after bun/npm install).
- * Ensures public/ exists before `wrangler deploy` when the dashboard
- * build command is empty but deploy runs `npx wrangler deploy`.
+ * Ensures public/ exists before `wrangler pages deploy` when the dashboard
+ * build command is empty but deploy runs `npx wrangler pages deploy public`.
  */
 
 import { execSync } from 'child_process';
