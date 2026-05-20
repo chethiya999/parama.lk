@@ -14,21 +14,13 @@ function write(file, html) {
   console.log(`patched ${file}`);
 }
 
-const LOCAL_BAR = `<a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="local-business-bar" role="region" aria-label="Contact information">
-        <div class="container">
-            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Panapitiya, Waskaduwa, Kalutara, Sri Lanka</span>
-            <a href="tel:+94718393764"><i class="fas fa-phone" aria-hidden="true"></i> +94 71 839 3764</a>
-            <a href="https://wa.me/94718393764"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-            <span><i class="fas fa-clock" aria-hidden="true"></i> Mon–Sun 8:00 AM – 6:00 PM</span>
-        </div>
-    </div>`;
+const SKIP_LINK = `<a href="#main-content" class="skip-link">Skip to main content</a>`;
 
 function patchIndex() {
   let html = read('index.html');
 
   if (!html.includes('class="skip-link"')) {
-    html = html.replace(/<body>\s*/, `<body>\n    ${LOCAL_BAR}\n\n    `);
+    html = html.replace(/<body>\s*/, `<body>\n    ${SKIP_LINK}\n\n    `);
   }
 
   if (!html.includes('<header class="navbar"')) {

@@ -25,6 +25,10 @@ body {
     margin: 0 auto;
 }
 
+.subsidiaries-section .container {
+    max-width: min(100%, 1920px);
+}
+
 /* Header styles */
 .header {
     text-align: center;
@@ -104,13 +108,50 @@ body {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
     .logos-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .logo-card {
         max-width: none;
+    }
+}
+
+@media (min-width: 1280px) {
+    .logos-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: clamp(0.75rem, 1.2vw, 1.25rem);
+    }
+
+    .logo-card {
+        max-width: none;
+    }
+
+    .logo-containersub {
+        height: 150px;
+    }
+
+    .logo-containersub img {
+        height: 100px;
+    }
+
+    .company-info {
+        padding: 18px 14px;
+    }
+
+    .company-name {
+        font-size: 1.05rem;
+    }
+
+    .company-description {
+        font-size: 0.85rem;
+        margin-bottom: 18px;
+    }
+
+    .visit-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
     }
 }
 
@@ -295,15 +336,16 @@ body {
 }
 
 /* Responsive design */
-@media (max-width: 1400px) {
+@media (min-width: 768px) and (max-width: 1279px) {
     .logo-card {
-        max-width: 250px;
+        max-width: none;
     }
 }
 
-@media (max-width: 1200px) {
-    .logo-card {
-        max-width: 280px;
+@media (min-width: 1280px) {
+    .logos-grid .logo-card {
+        max-width: none;
+        width: 100%;
     }
 }
 

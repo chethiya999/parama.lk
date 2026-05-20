@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const imagesToPreload = [
             'images/machinery/facility/hero.png',
-            'images/logo/logo.png',
+            'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png',
             'images/bg/ChatGPT Image May 14, 2026, 09_49_29 AM.png',
             'images/bg/ChatGPT Image May 14, 2026, 12_37_12 PM.png',
             'images/bg/ChatGPT Image May 14, 2026, 09_49_35 AM.png'

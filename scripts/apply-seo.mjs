@@ -58,8 +58,8 @@ function buildSeoBlock(page, file) {
     <meta name="twitter:description" content="${description}">
     <meta name="twitter:image" content="${ogImage}">
 
-    <link rel="icon" href="${prefix}images/logo/logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="${prefix}images/logo/logo.png">
+    <link rel="icon" href="https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png">
 
     <meta name="google-site-verification" content="${escapeHtml(SITE.googleSiteVerification)}">
     <meta name="theme-color" content="#1a7a3a">

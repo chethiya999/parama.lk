@@ -18,7 +18,7 @@ export const SITE = {
   },
   geo: { lat: 6.6489, lng: 79.9526 },
   hours: 'Mo-Su 08:00-18:00',
-  defaultOgImage: '/images/logo/logo.png',
+  defaultOgImage: 'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png',
   keywords:
     'PVC Pipes Sri Lanka, Plastic Recycling Sri Lanka, Green House Sri Lanka, Industrial Machinery Sri Lanka, Weighbridge Sri Lanka',
   /** Replace with your Google Analytics 4 measurement ID */
@@ -54,7 +54,7 @@ export const PAGES = [
     description:
       'Contact Parama Group in Kalutara, Sri Lanka. Call, WhatsApp, or email for PVC pipes, recycling, machinery, and weighbridge services. Open Mon–Sun 8 AM–6 PM.',
     keywords: 'contact Parama Sri Lanka, PVC pipes quote, industrial services Kalutara',
-    ogImage: '/images/logo/logo.png',
+    ogImage: 'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png',
   },
   {
     file: 'machinery.html',
@@ -126,7 +126,7 @@ export const PAGES = [
     description:
       'Heavy-duty plastic pallets for warehousing and logistics in Sri Lanka. Hygienic, reusable pallets from Parama Group.',
     keywords: 'plastic pallets Sri Lanka, industrial pallets',
-    ogImage: '/images/logo/recycale.png',
+    ogImage: 'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-06-Recycal.png',
   },
   {
     file: 'gallery/gallery.html',
