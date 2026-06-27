@@ -1,6 +1,5 @@
 {
   // Cloudflare Pages — pure static site, no build step
   "name": "parama",
-  "account_id": "152195c648d584cc14e4b80cd3b9ae5d",
   "pages_build_output_dir": "."
 }
