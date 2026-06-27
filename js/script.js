@@ -227,11 +227,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         const imagesToPreload = [
-            'images/machinery/facility/hero.png',
+            'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/machinery/facility/hero.png',
             'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png',
-            'images/bg/ChatGPT Image May 14, 2026, 09_49_29 AM.png',
-            'images/bg/ChatGPT Image May 14, 2026, 12_37_12 PM.png',
-            'images/bg/ChatGPT Image May 14, 2026, 09_49_35 AM.png'
+            'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/background/ChatGPT%20Image%20May%2014%2C%202026%2C%2009_49_29%20AM.png',
+            'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/background/ChatGPT%20Image%20May%2014%2C%202026%2C%2012_37_12%20PM.png',
+            'https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/background/ChatGPT%20Image%20May%2014%2C%202026%2C%2009_49_35%20AM.png'
         ];
         
         imagesToPreload.forEach(src => {

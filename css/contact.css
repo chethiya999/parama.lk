@@ -126,16 +126,38 @@ body {
     border: 2px solid #e5e7eb;
     border-radius: 10px;
     font-size: 1rem;
+    font-family: inherit;
+    color: #2c2c2c;
     transition: all 0.3s ease;
     background: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 45px;
+    cursor: pointer;
+}
+
+.form-group select option[value=""] {
+    color: #9ca3af;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #f4d03f;
-    box-shadow: 0 0 0 3px rgba(244, 208, 63, 0.1);
+    border-color: #e6b800;
+    box-shadow: 0 0 0 4px rgba(244, 208, 63, 0.25);
+    background: #fffdf5;
 }
 
 .checkbox-group {
@@ -146,17 +168,50 @@ body {
 
 .checkbox-label {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
     cursor: pointer;
     font-size: 0.95rem;
     color: #374151;
     line-height: 1.5;
+    user-select: none;
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: auto;
-    margin: 0;
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.checkbox-label:hover .checkmark {
+    border-color: #f4d03f;
+}
+
+.checkbox-label input[type="checkbox"]:checked ~ .checkmark {
+    background: #f4d03f;
+    border-color: #f4d03f;
+}
+
+.checkbox-label input[type="checkbox"]:checked ~ .checkmark::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: 2px solid #2c2c2c;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg) translateY(-1px);
+    display: block;
 }
 
 .submit-btn {
