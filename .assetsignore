@@ -1,0 +1,9 @@
+node_modules/
+.git/
+scripts/
+*.md
+package.json
+package-lock.json
+bun.lockb
+wrangler.jsonc
+.assetsignore

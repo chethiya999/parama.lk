@@ -4,10 +4,12 @@
   "type": "module",
   "scripts": {
     "upload:r2": "node scripts/upload-r2.mjs",
-    "deploy": "npx wrangler deploy",
-    "preview": "npx wrangler dev"
+    "build": "node scripts/workers-ci-build.mjs",
+    "deploy": "npx wrangler pages deploy public --project-name=parama",
+    "cf:ci": "node scripts/workers-ci-build.mjs && npx wrangler pages deploy public --project-name=parama",
+    "preview": "npx wrangler pages dev public"
   },
   "devDependencies": {
-    "wrangler": "^3"
+    "wrangler": "^4"
   }
 }
