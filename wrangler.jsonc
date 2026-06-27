@@ -1,5 +1,6 @@
 {
-  // Cloudflare Pages — pure static site, no build step
   "name": "parama",
-  "pages_build_output_dir": "."
+  "assets": {
+    "directory": "."
+  }
 }

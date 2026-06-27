@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "upload:r2": "node scripts/upload-r2.mjs",
-    "deploy": "npx wrangler pages deploy . --project-name=parama --branch=main",
-    "preview": "npx wrangler pages dev ."
+    "deploy": "npx wrangler deploy",
+    "preview": "npx wrangler dev"
   },
   "devDependencies": {
     "wrangler": "^3"
