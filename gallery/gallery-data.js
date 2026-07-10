@@ -195,7 +195,7 @@ const galleryItems = [
   },
   {
     id: 20,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-020.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-021.jpg",
     title: "Company event photo 20",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
@@ -205,7 +205,7 @@ const galleryItems = [
   },
   {
     id: 21,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-021.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-022.jpg",
     title: "Company event photo 21",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
@@ -215,7 +215,7 @@ const galleryItems = [
   },
   {
     id: 22,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-022.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-023.jpg",
     title: "Company event photo 22",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
@@ -225,7 +225,7 @@ const galleryItems = [
   },
   {
     id: 23,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-023.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-024.jpg",
     title: "Company event photo 23",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
@@ -235,7 +235,7 @@ const galleryItems = [
   },
   {
     id: 24,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-024.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-026.jpg",
     title: "Company event photo 24",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
@@ -245,32 +245,12 @@ const galleryItems = [
   },
   {
     id: 25,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-025.jpg",
+    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-027.jpg",
     title: "Company event photo 25",
     category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
     alt: "Company event photo 25 — Parama Group"
-  },
-  {
-    id: 26,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-026.jpg",
-    title: "Company event photo 26",
-    category: "Company Events",
-    description: "Photo from Parama corporate events and company activities.",
-    date: "2026",
-    featured: false,
-    alt: "Company event photo 26 — Parama Group"
-  },
-  {
-    id: 27,
-    image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-027.jpg",
-    title: "Company event photo 27",
-    category: "Company Events",
-    description: "Photo from Parama corporate events and company activities.",
-    date: "2026",
-    featured: false,
-    alt: "Company event photo 27 — Parama Group"
   }
 ];
