@@ -6,271 +6,271 @@ const galleryItems = [
   {
     id: 1,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-001.jpg",
-    title: "Corporate event photo 1",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 1",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 1 — Parama Group"
+    alt: "Exhibition photo 1 — Parama Group"
   },
   {
     id: 2,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-002.jpg",
-    title: "Corporate event photo 2",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 2",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 2 — Parama Group"
+    alt: "Exhibition photo 2 — Parama Group"
   },
   {
     id: 3,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-003.jpg",
-    title: "Corporate event photo 3",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 3",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 3 — Parama Group"
+    alt: "Exhibition photo 3 — Parama Group"
   },
   {
     id: 4,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-004.jpg",
-    title: "Corporate event photo 4",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 4",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 4 — Parama Group"
+    alt: "Exhibition photo 4 — Parama Group"
   },
   {
     id: 5,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-005.jpg",
-    title: "Corporate event photo 5",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 5",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 5 — Parama Group"
+    alt: "Exhibition photo 5 — Parama Group"
   },
   {
     id: 6,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-006.jpg",
-    title: "Corporate event photo 6",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 6",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: true,
-    alt: "Corporate event photo 6 — Parama Group"
+    alt: "Exhibition photo 6 — Parama Group"
   },
   {
     id: 7,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-007.jpg",
-    title: "Corporate event photo 7",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 7",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 7 — Parama Group"
+    alt: "Exhibition photo 7 — Parama Group"
   },
   {
     id: 8,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-008.jpg",
-    title: "Corporate event photo 8",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 8",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 8 — Parama Group"
+    alt: "Exhibition photo 8 — Parama Group"
   },
   {
     id: 9,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-009.jpg",
-    title: "Corporate event photo 9",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 9",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 9 — Parama Group"
+    alt: "Exhibition photo 9 — Parama Group"
   },
   {
     id: 10,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-010.jpg",
-    title: "Corporate event photo 10",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 10",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 10 — Parama Group"
+    alt: "Exhibition photo 10 — Parama Group"
   },
   {
     id: 11,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-011.jpg",
-    title: "Corporate event photo 11",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 11",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 11 — Parama Group"
+    alt: "Exhibition photo 11 — Parama Group"
   },
   {
     id: 12,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-012.jpg",
-    title: "Corporate event photo 12",
-    category: "Corporate Events",
-    description: "Photo from Parama corporate events and company activities.",
+    title: "Exhibition photo 12",
+    category: "Exhibitions",
+    description: "Photo from Parama's trade exhibitions and industry showcases.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 12 — Parama Group"
+    alt: "Exhibition photo 12 — Parama Group"
   },
   {
     id: 13,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-013.jpg",
-    title: "Corporate event photo 13",
-    category: "Corporate Events",
+    title: "Company event photo 13",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 13 — Parama Group"
+    alt: "Company event photo 13 — Parama Group"
   },
   {
     id: 14,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-014.jpg",
-    title: "Corporate event photo 14",
-    category: "Corporate Events",
+    title: "Company event photo 14",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 14 — Parama Group"
+    alt: "Company event photo 14 — Parama Group"
   },
   {
     id: 15,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-015.jpg",
-    title: "Corporate event photo 15",
-    category: "Corporate Events",
+    title: "Company event photo 15",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 15 — Parama Group"
+    alt: "Company event photo 15 — Parama Group"
   },
   {
     id: 16,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-016.jpg",
-    title: "Corporate event photo 16",
-    category: "Corporate Events",
+    title: "Company event photo 16",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 16 — Parama Group"
+    alt: "Company event photo 16 — Parama Group"
   },
   {
     id: 17,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-017.jpg",
-    title: "Corporate event photo 17",
-    category: "Corporate Events",
+    title: "Company event photo 17",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 17 — Parama Group"
+    alt: "Company event photo 17 — Parama Group"
   },
   {
     id: 18,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-018.jpg",
-    title: "Corporate event photo 18",
-    category: "Corporate Events",
+    title: "Company event photo 18",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 18 — Parama Group"
+    alt: "Company event photo 18 — Parama Group"
   },
   {
     id: 19,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-019.jpg",
-    title: "Corporate event photo 19",
-    category: "Corporate Events",
+    title: "Company event photo 19",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 19 — Parama Group"
+    alt: "Company event photo 19 — Parama Group"
   },
   {
     id: 20,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-020.jpg",
-    title: "Corporate event photo 20",
-    category: "Corporate Events",
+    title: "Company event photo 20",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 20 — Parama Group"
+    alt: "Company event photo 20 — Parama Group"
   },
   {
     id: 21,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-021.jpg",
-    title: "Corporate event photo 21",
-    category: "Corporate Events",
+    title: "Company event photo 21",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 21 — Parama Group"
+    alt: "Company event photo 21 — Parama Group"
   },
   {
     id: 22,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-022.jpg",
-    title: "Corporate event photo 22",
-    category: "Corporate Events",
+    title: "Company event photo 22",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 22 — Parama Group"
+    alt: "Company event photo 22 — Parama Group"
   },
   {
     id: 23,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-023.jpg",
-    title: "Corporate event photo 23",
-    category: "Corporate Events",
+    title: "Company event photo 23",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 23 — Parama Group"
+    alt: "Company event photo 23 — Parama Group"
   },
   {
     id: 24,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-024.jpg",
-    title: "Corporate event photo 24",
-    category: "Corporate Events",
+    title: "Company event photo 24",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 24 — Parama Group"
+    alt: "Company event photo 24 — Parama Group"
   },
   {
     id: 25,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-025.jpg",
-    title: "Corporate event photo 25",
-    category: "Corporate Events",
+    title: "Company event photo 25",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 25 — Parama Group"
+    alt: "Company event photo 25 — Parama Group"
   },
   {
     id: 26,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-026.jpg",
-    title: "Corporate event photo 26",
-    category: "Corporate Events",
+    title: "Company event photo 26",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 26 — Parama Group"
+    alt: "Company event photo 26 — Parama Group"
   },
   {
     id: 27,
     image: "https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/gallery/event-gallery-027.jpg",
-    title: "Corporate event photo 27",
-    category: "Corporate Events",
+    title: "Company event photo 27",
+    category: "Company Events",
     description: "Photo from Parama corporate events and company activities.",
     date: "2026",
     featured: false,
-    alt: "Corporate event photo 27 — Parama Group"
+    alt: "Company event photo 27 — Parama Group"
   }
 ];

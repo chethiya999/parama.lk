@@ -7,12 +7,7 @@
   const FILTER_LABELS = [
     'All',
     'Company Events',
-    'Staff Activities',
-    'Factory Operations',
-    'CSR Programs',
     'Exhibitions',
-    'Business Meetings',
-    'Special Events',
   ];
 
   const TESTIMONIALS = [
