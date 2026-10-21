@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Gallery Admin | Parama Group</title>
+  <link rel="stylesheet" href="../css/theme-variables.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="admin.css?v=2" />
+</head>
+<body>
+
+  <!-- Login -->
+  <main id="loginView" class="adm-login">
+    <form id="loginForm" class="adm-card adm-login-card">
+      <img src="https://pub-df1f9faee3d94aabbd406007fa5bfcca.r2.dev/logo/Logo-07-main.png" alt="Parama Group" class="adm-logo" />
+      <h1>Gallery Admin</h1>
+      <label for="username">Username</label>
+      <input type="text" id="username" autocomplete="username" required />
+      <label for="password">Password</label>
+      <input type="password" id="password" autocomplete="current-password" required />
+      <p id="loginError" class="adm-error" role="alert"></p>
+      <button type="submit" class="adm-btn adm-btn--primary"><i class="fas fa-lock-open"></i> Sign in</button>
+    </form>
+  </main>
+
+  <!-- Dashboard -->
+  <div id="appView" class="adm-app" hidden>
+    <header class="adm-header">
+      <div class="adm-header-title">
+        <i class="fas fa-images"></i>
+        <span>Gallery Admin</span>
+      </div>
+      <div class="adm-header-actions">
+        <a href="../gallery/gallery.html" target="_blank" rel="noopener" class="adm-btn adm-btn--ghost"><i class="fas fa-external-link-alt"></i> View gallery</a>
+        <button type="button" id="logoutBtn" class="adm-btn adm-btn--ghost"><i class="fas fa-sign-out-alt"></i> Sign out</button>
+      </div>
+    </header>
+
+    <main class="adm-main">
+      <section class="adm-card">
+        <h2>Upload images</h2>
+        <form id="uploadForm" class="adm-upload">
+          <label id="dropZone" class="adm-drop" for="fileInput">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <strong>Drop images here or click to choose</strong>
+            <span>JPG, PNG, WebP, GIF or AVIF · max 10 MB each</span>
+            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" multiple />
+          </label>
+          <ul id="fileList" class="adm-file-list"></ul>
+
+          <div class="adm-fields">
+            <div>
+              <label for="title">Title</label>
+              <input type="text" id="title" maxlength="120" placeholder="Used for all selected images (numbered)" />
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <select id="category">
+                <option>Exhibitions</option>
+                <option>Company Events</option>
+              </select>
+            </div>
+            <div class="adm-fields-wide">
+              <label for="description">Description</label>
+              <textarea id="description" maxlength="500" rows="2"></textarea>
+            </div>
+            <label class="adm-check">
+              <input type="checkbox" id="featured" /> Featured (shows in hero &amp; slider)
+            </label>
+          </div>
+
+          <button type="submit" id="uploadBtn" class="adm-btn adm-btn--primary" disabled>
+            <i class="fas fa-upload"></i> Upload
+          </button>
+        </form>
+      </section>
+
+      <section class="adm-card">
+        <div class="adm-list-head">
+          <h2>Gallery images <span id="countBadge" class="adm-badge">0</span></h2>
+          <div class="adm-list-tools">
+            <select id="filterCategory" aria-label="Filter by category">
+              <option value="">All categories</option>
+              <option>Exhibitions</option>
+              <option>Company Events</option>
+            </select>
+          </div>
+        </div>
+        <div id="grid" class="adm-grid"></div>
+        <p id="emptyState" class="adm-empty" hidden>No images yet.</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="adm-toast" role="status" aria-live="polite"></div>
+
+  <script src="../gallery/gallery-data.js"></script>
+  <script src="admin.js?v=2"></script>
+</body>
+</html>

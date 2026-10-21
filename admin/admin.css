@@ -1,0 +1,384 @@
+/* Parama.lk — Gallery admin panel */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg-soft);
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  border: var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-eco-glow);
+  border-color: var(--color-eco);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Shared ---------- */
+.adm-card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+}
+
+.adm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  font: 600 0.9rem var(--font-body);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.adm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.adm-btn--primary {
+  background: var(--color-eco);
+  color: #fff;
+}
+
+.adm-btn--primary:not(:disabled):hover {
+  background: var(--color-eco-bright);
+}
+
+.adm-btn--ghost {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.adm-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.adm-error {
+  color: #c62828;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+  margin: 0.5rem 0;
+}
+
+/* ---------- Login ---------- */
+.adm-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.adm-login-card {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+}
+
+.adm-login-card label,
+.adm-login-card input {
+  text-align: left;
+}
+
+.adm-login-card input + label {
+  margin-top: 0.85rem;
+}
+
+.adm-login-card .adm-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.adm-logo {
+  height: 56px;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- App ---------- */
+.adm-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 16px;
+  background: var(--color-charcoal);
+  color: #fff;
+}
+
+.adm-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font: 600 1.1rem var(--font-display);
+}
+
+.adm-header-title i {
+  color: var(--color-industrial);
+}
+
+.adm-header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.adm-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 16px 3rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* ---------- Upload ---------- */
+.adm-upload {
+  display: grid;
+  gap: 1rem;
+}
+
+.adm-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 2rem 1rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 400;
+  border: 2px dashed rgba(46, 125, 50, 0.35);
+  border-radius: var(--radius-md);
+  background: var(--color-eco-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.adm-drop i {
+  font-size: 2rem;
+  color: var(--color-eco);
+}
+
+.adm-drop span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.adm-drop input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.adm-drop--over {
+  border-color: var(--color-eco);
+  background: rgba(46, 125, 50, 0.15);
+}
+
+.adm-file-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.adm-file-list:empty {
+  display: none;
+}
+
+.adm-file--bad {
+  color: #c62828;
+}
+
+.adm-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.adm-fields-wide {
+  grid-column: 1 / -1;
+}
+
+.adm-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.adm-upload > .adm-btn {
+  justify-self: start;
+}
+
+/* ---------- Grid ---------- */
+.adm-list-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.adm-list-head h2 {
+  margin: 0;
+}
+
+.adm-list-tools select {
+  width: auto;
+}
+
+.adm-badge {
+  display: inline-block;
+  min-width: 1.8em;
+  padding: 0.1em 0.5em;
+  font: 600 0.8rem var(--font-body);
+  text-align: center;
+  color: var(--color-charcoal);
+  background: var(--color-gold-soft);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.adm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.adm-item {
+  position: relative;
+  border: var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.adm-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--color-bg-soft);
+}
+
+.adm-item-body {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.adm-item-body strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adm-item-body span {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+}
+
+.adm-item-delete {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  font: 600 0.8rem var(--font-body);
+  color: #fff;
+  background: rgba(30, 30, 30, 0.65);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.adm-item-delete:hover,
+.adm-item--confirm .adm-item-delete {
+  background: #c62828;
+}
+
+.adm-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Toast ---------- */
+.adm-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  max-width: calc(100% - 32px);
+  padding: 0.75rem 1.1rem;
+  font-size: 0.9rem;
+  color: #fff;
+  background: var(--color-eco);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, 200%);
+  transition: transform 0.25s ease;
+}
+
+.adm-toast--error {
+  background: #c62828;
+}
+
+.adm-toast--show {
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 767px) {
+  .adm-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .adm-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

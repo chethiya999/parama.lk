@@ -698,16 +698,33 @@
     renderGrid();
   }
 
+  /* Items managed from /admin/ live behind /api/gallery; gallery-data.js is the offline fallback */
+  function loadItems() {
+    if (!window.fetch) return Promise.resolve(getItems());
+    return fetch('/api/gallery', { headers: { Accept: 'application/json' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        return Array.isArray(data.items) ? data.items : getItems();
+      })
+      .catch(function () {
+        return getItems();
+      });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    var items = getItems();
     initPreloader();
     initScrollChrome();
     initGalleryScroll();
-    initHero(items);
-    initLightbox(items);
-    initGallerySectionPatched(items);
     initStats();
-    initFeaturedSlider(items);
     initTestimonials();
+    loadItems().then(function (items) {
+      initHero(items);
+      initLightbox(items);
+      initGallerySectionPatched(items);
+      initFeaturedSlider(items);
+    });
   });
 })();

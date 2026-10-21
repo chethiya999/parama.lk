@@ -27,6 +27,7 @@ copy("_headers", "public/_headers");
 copy("css", "public/css");
 copy("js", "public/js");
 copy("gallery", "public/gallery");
+copy("admin", "public/admin");
 copy("partials", "public/partials");
 copy("seo", "public/seo");
 

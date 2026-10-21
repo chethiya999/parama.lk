@@ -52,3 +52,24 @@ bun run cf:ci              # same as Cloudflare CI (build + pages deploy)
 npx wrangler pages deploy public --project-name=parama
 bun run preview            # npx wrangler pages dev public
 ```
+
+## Gallery admin (`/admin/`)
+
+The site now ships with a Worker ([`worker/index.js`](worker/index.js)) that serves `public/` and adds a small gallery API backed by the R2 bucket `web`. Because of that it must be deployed with **`npx wrangler deploy`** (Workers), not `wrangler pages deploy` — Pages ignores `main` and the API would return 404 (the gallery then falls back to `gallery/gallery-data.js`).
+
+| Setting | Value |
+|---------|-------|
+| **Build command** | `node scripts/workers-ci-build.mjs` |
+| **Deploy command** | `npx wrangler deploy` |
+
+One-time setup:
+
+```bash
+npx wrangler secret put ADMIN_USERNAME   # login username for /admin/
+npx wrangler secret put ADMIN_PASSWORD   # login password for /admin/
+```
+
+- Gallery list is stored in R2 at `gallery/gallery.json`; uploads go to `gallery/uploads/`.
+- On the first admin sign-in the existing `gallery-data.js` items are imported automatically.
+- Deleting an image removes it from the list and deletes its file from R2.
+- Local dev: put `ADMIN_USERNAME=...` and `ADMIN_PASSWORD=...` in `.dev.vars` (git-ignored) and run `bun run preview`.
